@@ -1,0 +1,91 @@
+/* Popup styling */ 
+.popup {
+  position: absolute;
+  background: white;
+  padding: 15px;
+  border: none;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  width: 250px;
+  height: auto;
+  max-height: 300px;
+  overflow-y: auto;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #444;
+  line-height: 1.5em;
+  border-radius: 5px;
+}
+
+/* Popup header styling */
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.popup-header h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.popup-header button {
+  border: none;
+  background: none;
+  color: #444;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Popup content styling */
+.popup-content {
+  margin-top: 10px;
+}
+
+.popup-content p {
+  margin: 0;
+  text-align: justify;
+}
+
+/* Close button styling */ 
+.popup button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 25px;
+  height: 25px;
+  border: none;
+  background: none;
+  color: #444;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+}
+
+.popup button:hover {
+  color: #7983ff;
+}
+
+.popup button:focus {
+  box-shadow: 0px 0px 0px 2px #7983ff;
+}
+
+/* Spinner animation */
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #7983ff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {transform: rotate(360deg);}
+}
