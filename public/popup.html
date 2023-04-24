@@ -1,32 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>My Chrome Extension</title>
-    <link rel="stylesheet" href="popup.css" />
-  </head>
-  <body>
-    <div class="app">
-      <p class="counter-label">Counter</p>
-      <div id="counter" class="counter"></div>
-      <div class="button-container">
-        <button id="decrementBtn" class="button">-</button>
-        <button id="incrementBtn" class="button">+</button>
-      </div>
+<html>
+<head>
+  <title>Language Selector</title>
+  <style>
+    /* Main container style */
+    body {
+      background-color: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50vh;
+      font-family: Arial, sans-serif;
+    }
 
-      <hr class="divider" />
+    /* Title style */
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #333;
+    }
 
-      <p class="title">Chrome Extension is Ready!</p>
-      <p class="subtitle">Start by updating <code>popup.html</code></p>
-    </div>
+    /* Select style */
+    #language {
+      font-size: 1rem;
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: none;
+      margin-right: 1rem;
+      color: #333;
+      background-color: #fff;
+    }
 
-    <script src="popup.js"></script>
+    /* Save button style */
+    #save-button {
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      border: none;
+      background-color: #4CAF50;
+      color: #fff;
+      cursor: pointer;
+    }
 
-    <!--
-      This HTML file opens when you click on icon from the toolbar.
+    /* Hover effect on the save button */
+    #save-button:hover {
+      background-color: #3e8e41;
+    }
+  </style>
+  <script src="popup.js"></script>
 
-      To begin the development, run `npm run watch`.
-      To create a production bundle, use `npm run build`.
-    -->
-  </body>
+</head>
+<body>
+  <h2>Select your preferred language:</h2>
+  <select id="language">
+    <option value="English">English</option>
+    <option value="Afrikaans">Afrikaans</option>
+    <option value="Sepedi">Sepedi</option>
+    <option value="isiZulu">isiZulu</option>
+    <option value="Sesotho">Sesotho</option>
+  </select>
+  <button id="save-button">Save</button>
+</body>
 </html>

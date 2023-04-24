@@ -6,7 +6,8 @@
   "permissions": [
     "activeTab",
     "contextMenus",
-    "tabs"
+    "tabs", 
+    "storage"
   ],
   "content_scripts": [
     {

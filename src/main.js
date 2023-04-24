@@ -1,12 +1,11 @@
 const { requestSynonym } = require('./script.js');
 
-
 //Set prevPop to null, initially when theres no popups on page
 let prevPopup=null; 
 
 // Event listener for double click on a word and creates the popup
 document.addEventListener("dblclick", async(event)=> {
-
+// Use the selected language in your script
     //Remove the previous pop if we find one is already open, ie
     //PrevPopup is not null anymore
     if (prevPopup) {
@@ -23,10 +22,6 @@ document.addEventListener("dblclick", async(event)=> {
 
     let spinner = document.createElement("div");
     spinner.classList.add("spinner");
-  
-
-
-
 
       //checks that the user does not double click nothing
       if(clickedWord != ""){
