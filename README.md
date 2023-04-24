@@ -4,7 +4,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-[![codecov](https://codecov.io/gh/Designers-Guild/Designers-Guild---Glossary-Tool/branch/main/graph/badge.svg?token=07SIVSVONZ)](https://codecov.io/gh/Designers-Guild/Designers-Guild---Glossary-Tool)
+[![codecov](https://codecov.io/gh/Designers-Guild/glossary-tool/branch/master/graph/badge.svg?token=4EW0AE35X4)](https://codecov.io/gh/Designers-Guild/glossary-tool)
 
 It is a multimedia, multilingual glossary tool for assisting learners in reading English text. The Chrome extension application allows users to double click on a word on any webpage (such as Canvas- Ulwazi) and view a pop-up showing the word, its definition, a picture, an audio file for pronunciation, translations into other
 languages, etc. The application uses ChatGPT's api.
