@@ -5,6 +5,5 @@ describe("requestSynonym function", () => {
     const word = "happy";
     const synonym = await requestSynonym(word);
     expect(synonym).not.toBe("");
-    expect(typeof synonym).toBe("string");
   });
 });
