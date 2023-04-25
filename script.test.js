@@ -1,6 +1,5 @@
 const { requestSynonym } = require("./src/script");
-const chrome = require('sinon-chrome/extensions');
-
+jest.mock('webextension-polyfill', () => require('sinon-chrome/webextensions'))
 describe("requestSynonym function", () => {
   test("should return a synonym for the provided word", async () => {
     const word = "happy";
