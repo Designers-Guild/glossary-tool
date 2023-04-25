@@ -1,42 +1,9 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="13" lines-covered="10" line-rate="0.7692" branches-valid="0" branches-covered="0" branch-rate="1" timestamp="1682424627123" complexity="0" version="0.1">
+<coverage lines-valid="0" lines-covered="0" line-rate="NaN" branches-valid="0" branches-covered="0" branch-rate="NaN" timestamp="1682430195034" complexity="0" version="0.1">
   <sources>
     <source>C:\Users\Salmaan\Desktop\Computer Science\COMS 3009 - Software Design\Project\glossary-tool</source>
   </sources>
   <packages>
-    <package name="main" line-rate="0.7692" branch-rate="1">
-      <classes>
-        <class name="script.js" filename="src\script.js" line-rate="0.7692" branch-rate="1">
-          <methods>
-            <method name="(anonymous_0)" hits="0" signature="()V">
-              <lines>
-                <line number="7" hits="0"/>
-              </lines>
-            </method>
-            <method name="requestSynonym" hits="1" signature="()V">
-              <lines>
-                <line number="14" hits="1"/>
-              </lines>
-            </method>
-          </methods>
-          <lines>
-            <line number="1" hits="1" branch="false"/>
-            <line number="2" hits="1" branch="false"/>
-            <line number="7" hits="1" branch="false"/>
-            <line number="8" hits="0" branch="false"/>
-            <line number="9" hits="0" branch="false"/>
-            <line number="15" hits="1" branch="false"/>
-            <line number="29" hits="1" branch="false"/>
-            <line number="30" hits="1" branch="false"/>
-            <line number="31" hits="1" branch="false"/>
-            <line number="32" hits="1" branch="false"/>
-            <line number="33" hits="1" branch="false"/>
-            <line number="35" hits="0" branch="false"/>
-            <line number="40" hits="1" branch="false"/>
-          </lines>
-        </class>
-      </classes>
-    </package>
   </packages>
 </coverage>
