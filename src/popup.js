@@ -16,7 +16,9 @@ document.addEventListener("DOMContentLoaded", function() {
       chrome.storage.sync.set({ 'language': selectedLanguage }, function() {
         console.log('Language set to ' + selectedLanguage);
       });
+      
       window.close(); // Close the popup window
+      
     });
   });
   

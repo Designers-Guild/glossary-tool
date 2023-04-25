@@ -7,6 +7,13 @@ chrome.storage.sync.get(['language'], function(items) {
   language = items.language;
   console.log("Language: " + language);
 });
+// Listen for changes to the "language" key
+chrome.storage.onChanged.addListener(function(changes, areaName) {
+  if (areaName === 'sync' && changes.language) {
+    language = changes.language.newValue;
+    console.log('Language updated to ' + language);
+  }
+});
 
 
 // Function connects to OpenAI API and returns a synonym for the word passed in
@@ -35,5 +42,33 @@ const requestOptions = {
   }
   
 }
+// Function connects to OpenAI API and returns a synonym for the word passed in
+async function requestT(word) {
+  const requestOptions = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${apiKey}`,
+    },
+    body: JSON.stringify({
+      model: "gpt-3.5-turbo",
+      messages: [{role: "system", content: "From now on, I only want single word answers."},
+       {role: "system", content: `You are a Helpul assistant that translates english to "${language}".`}
+      ,{role: "user", content:`Provide me with a Translation of "${word}" to "${language}".`}],
+    }),
+  };
+  
+    try {
+      const response = await fetch("https://api.openai.com/v1/chat/completions", requestOptions);
+      const data = await response.json();
+      const content = data.choices[0].message.content;
+      return content;
+    } catch (error) {
+      return "Please try again";
+    }
+    
+  }
 
-module.exports = { requestSynonym};
+
+
+module.exports = { requestSynonym,requestT};

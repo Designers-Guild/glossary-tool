@@ -1,4 +1,4 @@
-const { requestSynonym } = require('./script.js');
+const { requestSynonym,requestT } = require('./script.js');
 
 //Set prevPop to null, initially when theres no popups on page
 let prevPopup=null; 
@@ -48,8 +48,9 @@ document.body.appendChild(popup);
 prevPopup = popup;
         // Add the word & the synonym to the popup
          let synonym = await requestSynonym(clickedWord);
+         let t = await requestT(clickedWord);
          let content = document.createElement("div");
-        content.innerHTML = clickedWord + "-----" + synonym;
+        content.innerHTML = clickedWord + "-----" + synonym +"<br>" +"TRANSLATION: " + t;
         popup.replaceChild(content, spinner);
   
       }
