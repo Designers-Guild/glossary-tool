@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="13" lines-covered="10" line-rate="0.7692" branches-valid="0" branches-covered="0" branch-rate="1" timestamp="1682408211632" complexity="0" version="0.1">
+<coverage lines-valid="13" lines-covered="10" line-rate="0.7692" branches-valid="0" branches-covered="0" branch-rate="1" timestamp="1682424627123" complexity="0" version="0.1">
   <sources>
     <source>C:\Users\Salmaan\Desktop\Computer Science\COMS 3009 - Software Design\Project\glossary-tool</source>
   </sources>
@@ -27,13 +27,13 @@
             <line number="8" hits="0" branch="false"/>
             <line number="9" hits="0" branch="false"/>
             <line number="15" hits="1" branch="false"/>
-            <line number="27" hits="1" branch="false"/>
-            <line number="28" hits="1" branch="false"/>
             <line number="29" hits="1" branch="false"/>
             <line number="30" hits="1" branch="false"/>
             <line number="31" hits="1" branch="false"/>
-            <line number="33" hits="0" branch="false"/>
-            <line number="38" hits="1" branch="false"/>
+            <line number="32" hits="1" branch="false"/>
+            <line number="33" hits="1" branch="false"/>
+            <line number="35" hits="0" branch="false"/>
+            <line number="40" hits="1" branch="false"/>
           </lines>
         </class>
       </classes>

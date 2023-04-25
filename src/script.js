@@ -20,7 +20,9 @@ const requestOptions = {
   },
   body: JSON.stringify({
     model: "gpt-3.5-turbo",
-    messages: [{role: "system", content:`You are a dictionary. In your answer, give me a synonym of "${word}".`}],
+    messages: [{role: "system", content: "From now on, I only want single word answers."},
+     {role: "system", content: "You are the oxford dictionary."}
+    ,{role: "user", content:`Provide me with a synonym of "${word}".`}],
   }),
 };
 
@@ -30,7 +32,7 @@ const requestOptions = {
     const content = data.choices[0].message.content;
     return content;
   } catch (error) {
-    return console.log(error);
+    return "Please try again";
   }
   
 }
