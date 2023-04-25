@@ -1,5 +1,4 @@
 apiKey = "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 ";
-const chrome = require('sinon-chrome');
 //language selected by the user
 var language;
 
