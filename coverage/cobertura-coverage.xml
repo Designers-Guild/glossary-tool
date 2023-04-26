@@ -1,13 +1,13 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="38" lines-covered="27" line-rate="0.7105" branches-valid="6" branches-covered="1" branch-rate="0.1666" timestamp="1682514882080" complexity="0" version="0.1">
+<coverage lines-valid="52" lines-covered="39" line-rate="0.75" branches-valid="6" branches-covered="1" branch-rate="0.1666" timestamp="1682518152842" complexity="0" version="0.1">
   <sources>
     <source>C:\Users\Salmaan\Desktop\Computer Science\COMS 3009 - Software Design\Project\glossary-tool</source>
   </sources>
   <packages>
-    <package name="main" line-rate="0.7105" branch-rate="0.1666">
+    <package name="main" line-rate="0.75" branch-rate="0.1666">
       <classes>
-        <class name="script.js" filename="src\script.js" line-rate="0.7105" branch-rate="0.1666">
+        <class name="script.js" filename="src\script.js" line-rate="0.75" branch-rate="0.1666">
           <methods>
             <method name="(anonymous_0)" hits="0" signature="()V">
               <lines>
@@ -37,6 +37,16 @@
             <method name="requestDefinition" hits="1" signature="()V">
               <lines>
                 <line number="102" hits="1"/>
+              </lines>
+            </method>
+            <method name="requestExampleSentence" hits="1" signature="()V">
+              <lines>
+                <line number="129" hits="1"/>
+              </lines>
+            </method>
+            <method name="requestHomonym" hits="1" signature="()V">
+              <lines>
+                <line number="156" hits="1"/>
               </lines>
             </method>
           </methods>
@@ -78,7 +88,21 @@
             <line number="120" hits="1" branch="false"/>
             <line number="121" hits="1" branch="false"/>
             <line number="123" hits="0" branch="false"/>
-            <line number="128" hits="1" branch="false"/>
+            <line number="130" hits="1" branch="false"/>
+            <line number="144" hits="1" branch="false"/>
+            <line number="145" hits="1" branch="false"/>
+            <line number="146" hits="1" branch="false"/>
+            <line number="147" hits="1" branch="false"/>
+            <line number="148" hits="1" branch="false"/>
+            <line number="150" hits="0" branch="false"/>
+            <line number="157" hits="1" branch="false"/>
+            <line number="171" hits="1" branch="false"/>
+            <line number="172" hits="1" branch="false"/>
+            <line number="173" hits="1" branch="false"/>
+            <line number="174" hits="1" branch="false"/>
+            <line number="175" hits="1" branch="false"/>
+            <line number="177" hits="0" branch="false"/>
+            <line number="181" hits="1" branch="false"/>
           </lines>
         </class>
       </classes>
