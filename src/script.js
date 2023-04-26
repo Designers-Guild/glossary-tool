@@ -1,4 +1,4 @@
-apiKey = "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 ";
+apiKey = "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";
 //language selected by the user
 var language;
 
