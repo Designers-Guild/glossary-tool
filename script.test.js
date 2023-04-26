@@ -1,4 +1,4 @@
-const { requestSynonym, requestT, requestAntonym, requestDefinition } = require("./src/script");
+const { requestSynonym, requestT, requestAntonym, requestDefinition, requestExampleSentence } = require("./src/script");
 
 describe("requestSynonym function", () => {
   test("should return a synonym for the provided word", async () => {
@@ -39,5 +39,16 @@ describe('requestDefinition', () => {
     expect(typeof definiton).toBe('string'); // check that the definiton is a string
     expect(definiton).not.toBe('happy'); // check that the definiton is not the same as the original word
     expect(definiton.length).toBeGreaterThan(0); // check that the definiton is not an empty string
+  }, 25000); // set the timeout to 25000ms
+});
+
+describe('requestExampleSentence', () => {
+  test('should return an example sentence for the word passed in', async () => {
+    const word = 'happy';
+    const examplesentence = await requestExampleSentence(word);
+
+    expect(typeof examplesentence).toBe('string'); // check that the example sentence is a string
+    expect(examplesentence).not.toBe('happy'); // check that the example sentence is not the same as the original word
+    expect(examplesentence.length).toBeGreaterThan(0); // check that the example sentence is not an empty string
   }, 25000); // set the timeout to 25000ms
 });
