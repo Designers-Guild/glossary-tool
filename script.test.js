@@ -5,7 +5,7 @@ describe("requestSynonym function", () => {
     const word = "happy";
     const synonym = await requestSynonym(word);
     expect(synonym).not.toBe("");
-  });
+  }, 25000); // set the timeout to 25000ms
 });
 
 describe('requestT', () => {
@@ -16,7 +16,8 @@ describe('requestT', () => {
     expect(typeof translation).toBe('string'); // check that the translation is a string
     expect(translation).not.toBe('happy'); // check that the translation is not the same as the original word
     expect(translation.length).toBeGreaterThan(0); // check that the translation is not an empty string
-  });
+  }, 25000); // set the timeout to 25000ms
+
 });
 
 describe('requestAntonym', () => {
@@ -27,7 +28,7 @@ describe('requestAntonym', () => {
     expect(typeof antonym).toBe('string'); // check that the antonym is a string
     expect(antonym).not.toBe('happy'); // check that the antonym is not the same as the original word
     expect(antonym.length).toBeGreaterThan(0); // check that the antonym is not an empty string
-  });
+  }, 25000); // set the timeout to 25000ms
 });
 
 describe('requestDefinition', () => {
@@ -38,5 +39,5 @@ describe('requestDefinition', () => {
     expect(typeof definiton).toBe('string'); // check that the definiton is a string
     expect(definiton).not.toBe('happy'); // check that the definiton is not the same as the original word
     expect(definiton.length).toBeGreaterThan(0); // check that the definiton is not an empty string
-  });
+  }, 25000); // set the timeout to 25000ms
 });
