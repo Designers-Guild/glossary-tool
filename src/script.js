@@ -151,4 +151,31 @@ const requestOptions = {
   }
   
 }
-module.exports = { requestSynonym,requestT,requestAntonym,requestDefinition,requestExampleSentence};
+
+// Function connects to OpenAI API and returns a Homonym  for the word passed in
+async function requestHomonym(word) {
+  const requestOptions = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${apiKey}`,
+    },
+    body: JSON.stringify({
+      model: "gpt-3.5-turbo",
+      messages: [{role: "system", content: "From now on, I only want single word answers."},
+       {role: "system", content: "You are the oxford dictionary."}
+      ,{role: "user", content:`Provide me with a homonym of "${word}".`}],
+    }),
+  };
+  
+    try {
+      const response = await fetch("https://api.openai.com/v1/chat/completions", requestOptions);
+      const data = await response.json();
+      const content = data.choices[0].message.content;
+      return content;
+    } catch (error) {
+      return "Please try again";
+    }
+    
+  }
+module.exports = { requestSynonym,requestT,requestAntonym,requestDefinition,requestExampleSentence,requestHomonym};
