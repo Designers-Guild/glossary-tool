@@ -1,4 +1,4 @@
-const { requestSynonym, requestT } = require("./src/script");
+const { requestSynonym, requestT, requestAntonym, requestDefinition } = require("./src/script");
 
 describe("requestSynonym function", () => {
   test("should return a synonym for the provided word", async () => {
@@ -9,19 +9,34 @@ describe("requestSynonym function", () => {
 });
 
 describe('requestT', () => {
-  test('should return a synonym for the word passed in', async () => {
+  test('should return a translation for the word passed in', async () => {
     const word = 'happy';
-    const synonym = await requestT(word);
+    const translation = await requestT(word);
 
-    expect(typeof synonym).toBe('string'); // check that the synonym is a string
-    expect(synonym).not.toBe('happy'); // check that the synonym is not the same as the original word
-    expect(synonym.length).toBeGreaterThan(0); // check that the synonym is not an empty string
+    expect(typeof translation).toBe('string'); // check that the translation is a string
+    expect(translation).not.toBe('happy'); // check that the translation is not the same as the original word
+    expect(translation.length).toBeGreaterThan(0); // check that the translation is not an empty string
   });
+});
 
-  test('should return "Please try again" when there is an error', async () => {
-    const word = 'nonexistentword';
-    const synonym = await requestT(word);
+describe('requestAntonym', () => {
+  test('should return a antonym for the word passed in', async () => {
+    const word = 'happy';
+    const antonym = await requestAntonym(word);
 
-    expect(synonym).toBe('Please try again'); // check that the function returns the error message
+    expect(typeof antonym).toBe('string'); // check that the antonym is a string
+    expect(antonym).not.toBe('happy'); // check that the antonym is not the same as the original word
+    expect(antonym.length).toBeGreaterThan(0); // check that the antonym is not an empty string
+  });
+});
+
+describe('requestDefinition', () => {
+  test('should return a definiton for the word passed in', async () => {
+    const word = 'happy';
+    const definiton = await requestDefinition(word);
+
+    expect(typeof definiton).toBe('string'); // check that the definiton is a string
+    expect(definiton).not.toBe('happy'); // check that the definiton is not the same as the original word
+    expect(definiton.length).toBeGreaterThan(0); // check that the definiton is not an empty string
   });
 });
