@@ -2,18 +2,20 @@ apiKey = "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 ";
 //language selected by the user
 var language;
 
-// Read the language from storage and store it in the global variable
-chrome.storage.sync.get(['language'], function(items) {
-  language = items.language;
-  console.log("Language: " + language);
-});
-// Listen for changes to the "language" key
-chrome.storage.onChanged.addListener(function(changes, areaName) {
-  if (areaName === 'sync' && changes.language) {
-    language = changes.language.newValue;
-    console.log('Language updated to ' + language);
-  }
-});
+if (typeof jest === "undefined") { // exclude this block when running Jest tests
+  // Read the language from storage and store it in the global variable
+  chrome.storage.sync.get(['language'], function(items) {
+    language = items.language;
+    console.log("Language: " + language);
+  });
+  // Listen for changes to the "language" key
+  chrome.storage.onChanged.addListener(function(changes, areaName) {
+    if (areaName === 'sync' && changes.language) {
+      language = changes.language.newValue;
+      console.log('Language updated to ' + language);
+    }
+  });
+}
 
 
 // Function connects to OpenAI API and returns a synonym for the word passed in
