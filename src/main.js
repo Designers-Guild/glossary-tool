@@ -55,7 +55,7 @@ prevPopup = popup;
          let homonym=await requestHomonym(clickedWord);
          let content = document.createElement("div");
          
-        content.innerHTML = clickedWord + "-----" + synonym +"<br>" +"TRANSLATION: " + t + "<br>" + "ANTONYM: " + antonym + "<br>" + "DEFINITION: " + definition  + "<br>" + "Example Sentence: " + examplesentence + "<br>" + "Homonym: " + homonym;
+        content.innerHTML = clickedWord + "<br>" +"<br>"+ "SYNONYM: " + synonym +"<br>" +"TRANSLATION: " + t + "<br>" + "ANTONYM: " + antonym + "<br>" + "DEFINITION: " + definition  + "<br>" + "EXAMPLE SENTENCE: " + examplesentence + "<br>" + "HOMONYM: " + homonym;
         popup.replaceChild(content, spinner);
   
       }
