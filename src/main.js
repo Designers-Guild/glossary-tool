@@ -1,4 +1,4 @@
-const { requestSynonym,requestT ,requestAntonym,requestDefinition,requestExampleSentence,requestHomonym} = require('./script.js');
+const { requestSynonym,requestT ,requestAntonym,requestDefinition,requestExampleSentence,requestHomonym, createImage} = require('./script.js');
 
 //Set prevPop to null, initially when theres no popups on page
 let prevPopup=null; 
@@ -54,8 +54,13 @@ prevPopup = popup;
          let examplesentence = await requestExampleSentence(clickedWord);
          let homonym=await requestHomonym(clickedWord);
          let content = document.createElement("div");
+
+          let img = document.createElement("img"); // create an img element
+          img.src = await createImage(clickedWord); // set the src attribute to the image URL
+          console.log(img.src);
          
         content.innerHTML = clickedWord + "<br>" +"<br>"+ "SYNONYM: " + synonym +"<br>" +"TRANSLATION: " + t + "<br>" + "ANTONYM: " + antonym + "<br>" + "DEFINITION: " + definition  + "<br>" + "EXAMPLE SENTENCE: " + examplesentence + "<br>" + "HOMONYM: " + homonym;
+        content.appendChild(img);
         popup.replaceChild(content, spinner);
   
       }

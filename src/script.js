@@ -184,4 +184,25 @@ async function requestHomonym(word) {
     }
     
   }
-module.exports = { requestSynonym,requestT,requestAntonym,requestDefinition,requestExampleSentence,requestHomonym};
+  async function createImage(word) {
+    const response = await fetch('https://api.openai.com/v1/images/generations', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`
+      },
+      body: JSON.stringify({
+        'model': 'image-alpha-001',
+        'prompt': word,
+        'num_images': 1,
+        'size':  '1024x1024'
+      })
+    });
+    const data = await response.json();
+    const url = data.data[0].url;
+    return url;
+  }
+module.exports = { requestSynonym,requestT,requestAntonym,requestDefinition,requestExampleSentence,requestHomonym, createImage};
+
+
+
