@@ -1,10 +1,14 @@
 apiKey = "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";
-//language selected by the user
+
+var language;
+if (typeof jest === "undefined") { // exclude this block when running Jest tests
+
+  // Default language is Afrikaans
 chrome.storage.sync.set({'language': 'Afrikaans'}, function() {
   console.log('Language set to Afrikaans.');
 });
 
-if (typeof jest === "undefined") { // exclude this block when running Jest tests
+
   // Read the language from storage and store it in the global variable
   chrome.storage.sync.get(['language'], function(items) {
     language = items.language;
