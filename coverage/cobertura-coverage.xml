@@ -1,13 +1,13 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="54" lines-covered="39" line-rate="0.7222" branches-valid="6" branches-covered="1" branch-rate="0.1666" timestamp="1682938395812" complexity="0" version="0.1">
+<coverage lines-valid="58" lines-covered="39" line-rate="0.6724" branches-valid="6" branches-covered="1" branch-rate="0.1666" timestamp="1683467583873" complexity="0" version="0.1">
   <sources>
     <source>C:\Users\Salmaan\Desktop\Computer Science\COMS 3009 - Software Design\Project\glossary-tool</source>
   </sources>
   <packages>
-    <package name="main" line-rate="0.7222" branch-rate="0.1666">
+    <package name="main" line-rate="0.6724" branch-rate="0.1666">
       <classes>
-        <class name="script.js" filename="src\script.js" line-rate="0.7222" branch-rate="0.1666">
+        <class name="script.js" filename="src\script.js" line-rate="0.6724" branch-rate="0.1666">
           <methods>
             <method name="(anonymous_0)" hits="0" signature="()V">
               <lines>
@@ -29,7 +29,7 @@
                 <line number="28" hits="1"/>
               </lines>
             </method>
-            <method name="requestT" hits="1" signature="()V">
+            <method name="requestTranslation" hits="1" signature="()V">
               <lines>
                 <line number="54" hits="1"/>
               </lines>
@@ -52,6 +52,11 @@
             <method name="requestHomonym" hits="1" signature="()V">
               <lines>
                 <line number="162" hits="1"/>
+              </lines>
+            </method>
+            <method name="createImage" hits="0" signature="()V">
+              <lines>
+                <line number="187" hits="0"/>
               </lines>
             </method>
           </methods>
@@ -109,7 +114,11 @@
             <line number="180" hits="1" branch="false"/>
             <line number="181" hits="1" branch="false"/>
             <line number="183" hits="0" branch="false"/>
-            <line number="187" hits="1" branch="false"/>
+            <line number="188" hits="0" branch="false"/>
+            <line number="201" hits="0" branch="false"/>
+            <line number="202" hits="0" branch="false"/>
+            <line number="203" hits="0" branch="false"/>
+            <line number="205" hits="1" branch="false"/>
           </lines>
         </class>
       </classes>

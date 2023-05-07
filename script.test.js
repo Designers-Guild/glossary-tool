@@ -1,4 +1,4 @@
-const { requestSynonym, requestT, requestAntonym, requestDefinition, requestExampleSentence, requestHomonym } = require("./src/script");
+const { requestSynonym, requestTranslation, requestAntonym, requestDefinition, requestExampleSentence, requestHomonym } = require("./src/script");
 
 describe("requestSynonym function", () => {
   test("should return a synonym for the provided word", async () => {
@@ -8,10 +8,10 @@ describe("requestSynonym function", () => {
   }, 50000); // set the timeout to 50000
 });
 
-describe('requestT', () => {
+describe('requestTranslation', () => {
   test('should return a translation for the word passed in', async () => {
     const word = 'happy';
-    const translation = await requestT(word);
+    const translation = await requestTranslation(word);
 
     expect(typeof translation).toBe('string'); // check that the translation is a string
     expect(translation).not.toBe('happy'); // check that the translation is not the same as the original word

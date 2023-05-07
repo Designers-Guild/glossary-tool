@@ -1,4 +1,4 @@
-const { requestSynonym,requestT ,requestAntonym,requestDefinition,requestExampleSentence,requestHomonym, createImage} = require('./script.js');
+const { requestSynonym,requestTranslation ,requestAntonym,requestDefinition,requestExampleSentence,requestHomonym, createImage} = require('./script.js');
 
 //Set prevPop to null, initially when theres no popups on page
 let prevPopup=null; 
@@ -46,22 +46,50 @@ popup.appendChild(closeButton);
 document.body.appendChild(popup);
 
 prevPopup = popup;
-        // Add the word , the synonym and the antonym to the popup
-         let synonym = await requestSynonym(clickedWord);
-         let t = await requestT(clickedWord);
-         let antonym = await requestAntonym(clickedWord);
-         let definition=await requestDefinition(clickedWord);
-         let examplesentence = await requestExampleSentence(clickedWord);
-         let homonym=await requestHomonym(clickedWord);
+
          let content = document.createElement("div");
 
-          let img = document.createElement("img"); // create an img element
-          img.src = await createImage(clickedWord); // set the src attribute to the image URL
-          console.log(img.src);
+         let word = document.createElement("div");
+         word.innerText = clickedWord;
+         word.classList.add("popup-word");
+         content.appendChild(word);
          
-        content.innerHTML = clickedWord + "<br>" +"<br>"+ "SYNONYM: " + synonym +"<br>" +"TRANSLATION: " + t + "<br>" + "ANTONYM: " + antonym + "<br>" + "DEFINITION: " + definition  + "<br>" + "EXAMPLE SENTENCE: " + examplesentence + "<br>" + "HOMONYM: " + homonym;
-        content.appendChild(img);
-        popup.replaceChild(content, spinner);
+         let synonym = document.createElement("div");
+         synonym.innerHTML = `<span class="bold-text">Synonym:</span> ${await requestSynonym(clickedWord)}`;
+         synonym.classList.add("popup-synonym");
+         content.appendChild(synonym);
+         
+         let antonym = document.createElement("div");
+         antonym.innerHTML = `<span class="bold-text">Antonym:</span> ${await requestAntonym(clickedWord)}`;
+         antonym.classList.add("popup-antonym");
+         content.appendChild(antonym);
+         
+         let definition = document.createElement("div");
+         definition.innerHTML = `<span class="bold-text">Definition:</span> ${await requestDefinition(clickedWord)}`;
+         definition.classList.add("popup-definition");
+         content.appendChild(definition);
+
+         let examplesentence = document.createElement("div");
+         examplesentence.innerHTML = `<span class="bold-text">Example Sentence:</span> ${await requestExampleSentence(clickedWord)}`;
+         examplesentence.classList.add("popup-example");
+         content.appendChild(examplesentence);
+         
+         let homonym = document.createElement("div");
+         homonym.innerHTML = `<span class="bold-text">Homonym:</span> ${await requestHomonym(clickedWord)}`;
+         homonym.classList.add("popup-homonym");
+         content.appendChild(homonym);
+         
+         let translation = document.createElement("div");
+         translation.innerHTML = `<span class="bold-text">Translation:</span> ${await requestTranslation(clickedWord)}`;
+         translation.classList.add("popup-translation");
+         content.appendChild(translation);
+
+         let img = document.createElement("img"); 
+         img.src = await createImage(clickedWord); 
+         content.appendChild(img);
+         
+         popup.replaceChild(content, spinner);
+
   
       }
   

@@ -51,7 +51,7 @@ const requestOptions = {
   
 }
 // Function connects to OpenAI API and returns a Translation for the word passed in
-async function requestT(word) {
+async function requestTranslation(word) {
   const requestOptions = {
     method: "POST",
     headers: {
@@ -202,7 +202,7 @@ async function requestHomonym(word) {
     const url = data.data[0].url;
     return url;
   }
-module.exports = { requestSynonym,requestT,requestAntonym,requestDefinition,requestExampleSentence,requestHomonym, createImage};
+module.exports = { requestSynonym,requestTranslation,requestAntonym,requestDefinition,requestExampleSentence,requestHomonym, createImage};
 
 
 

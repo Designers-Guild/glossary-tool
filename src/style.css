@@ -5,15 +5,89 @@
   padding: 15px;
   border: none;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  width: 250px;
-  height: auto;
-  max-height: 300px;
+  width: 400px;
+  height: 300px;
   overflow-y: auto;
   font-family: Arial, sans-serif;
   font-size: 14px;
   color: #444;
   line-height: 1.5em;
   border-radius: 5px;
+}
+
+
+/* Placeholder styling for word */
+.popup-word {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Placeholder styling for synonym */
+.popup-synonym {
+  margin-top: 10px;
+  font-size: 16px;
+  font-style: italic;
+}
+
+.popup-synonym .bold-text {
+  font-weight: bold;
+}
+
+/* Placeholder styling for antonym */
+.popup-antonym {
+  margin-top: 10px;
+  font-size: 16px;
+  font-style: italic;
+}
+
+.popup-antonym .bold-text {
+  font-weight: bold;
+}
+
+/* Placeholder styling for definition */
+.popup-definition {
+  margin-top: 10px;
+  font-size: 16px;
+  font-style: italic;
+}
+
+.popup-definition .bold-text {
+  font-weight: bold;
+}
+
+
+/* Placeholder styling for example sentence */
+.popup-example {
+  margin-top: 10px;
+  font-size: 16px;
+  font-style: italic;
+}
+
+.popup-example .bold-text {
+  font-weight: bold;
+}
+
+/* Placeholder styling for homonym */
+.popup-homonym {
+  margin-top: 10px;
+  font-size: 16px;
+  font-style: italic;
+}
+
+.popup-homonym .bold-text {
+  font-weight: bold;
+}
+
+/* Placeholder styling for translation*/
+.popup-translation {
+  margin-top: 10px;
+  font-size: 16px;
+  font-style: italic;
+}
+
+.popup-translation .bold-text {
+  font-weight: bold;
 }
 
 /* Popup header styling */
@@ -41,7 +115,15 @@
 
 /* Popup content styling */
 .popup-content {
+  display: flex;
+  flex-direction: row;
   margin-top: 10px;
+}
+
+.popup-content img {
+  max-width: 100%;
+  max-height: 200px;
+  margin-right: 10px;
 }
 
 .popup-content p {
@@ -90,11 +172,9 @@
   to {transform: rotate(360deg);}
 }
 
-
-/* Image styling */
 .popup img {
-  display: block;
-  margin: 0 auto;
+  float: left;
+  margin-right: 10px;
   max-width: 100%;
   max-height: 200px;
 }
