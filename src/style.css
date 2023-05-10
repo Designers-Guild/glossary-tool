@@ -15,6 +15,75 @@
   border-radius: 5px;
 }
 
+/* Spinner animation */
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #7983ff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {transform: rotate(360deg);}
+}
+
+/* Close button styling */ 
+.popup closeButton {
+  position: absolute;
+  top: 10px;
+  right: 50px; /* Increase the right value to create space for the image button */
+  width: 25px;
+  height: 25px;
+  border: none;
+  background: none;
+  color: #444;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  }
+  
+  .popup closeButton:hover {
+  color: #7983ff;
+  }
+  
+  .popup closeButton:focus {
+  box-shadow: 0px 0px 0px 2px #7983ff;
+  }
+
+.popup imageButton {
+  position: absolute;
+  top: 10px;
+  right: 85px; /* Position the image button to the right of the close button */
+  width: 25px;
+  height: 25px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  }
+  
+  .popup imageButton:hover {
+    color: #7983ff;
+  }
+  
+  .popup imageButton:focus {
+    box-shadow: 0px 0px 0px 2px #7983ff;
+  }
+
+  .imageButton img {
+    width: 20px;
+    height: 20px;
+  }
 
 /* Placeholder styling for word */
 .popup-word {
@@ -88,93 +157,4 @@
 
 .popup-translation .bold-text {
   font-weight: bold;
-}
-
-/* Popup header styling */
-.popup-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.popup-header h2 {
-  margin: 0;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.popup-header button {
-  border: none;
-  background: none;
-  color: #444;
-  font-size: 16px;
-  cursor: pointer;
-  padding: 0;
-}
-
-/* Popup content styling */
-.popup-content {
-  display: flex;
-  flex-direction: row;
-  margin-top: 10px;
-}
-
-.popup-content img {
-  max-width: 100%;
-  max-height: 200px;
-  margin-right: 10px;
-}
-
-.popup-content p {
-  margin: 0;
-  text-align: justify;
-}
-
-/* Close button styling */ 
-.popup button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 25px;
-  height: 25px;
-  border: none;
-  background: none;
-  color: #444;
-  font-size: 18px;
-  cursor: pointer;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  outline: none;
-}
-
-.popup button:hover {
-  color: #7983ff;
-}
-
-.popup button:focus {
-  box-shadow: 0px 0px 0px 2px #7983ff;
-}
-
-/* Spinner animation */
-.spinner {
-  border: 4px solid rgba(0, 0, 0, 0.1);
-  border-left-color: #7983ff;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  to {transform: rotate(360deg);}
-}
-
-.popup img {
-  float: left;
-  margin-right: 10px;
-  max-width: 100%;
-  max-height: 200px;
 }

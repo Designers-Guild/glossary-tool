@@ -195,7 +195,7 @@ async function requestHomonym(word) {
         'model': 'image-alpha-001',
         'prompt': word,
         'num_images': 1,
-        'size':  '1024x1024'
+        'size':  '256x256'
       })
     });
     const data = await response.json();
