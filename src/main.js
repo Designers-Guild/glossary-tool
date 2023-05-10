@@ -43,6 +43,12 @@ document.addEventListener("dblclick", async(event)=> {
   popup.remove();
 });
 
+//Making a wiki link for the word
+function GetWikiLink(word) {
+  var encodedWord = encodeURIComponent(word);
+  var wikiLink = `https://en.wikipedia.org/wiki/${encodedWord}`;
+  return wikiLink
+}
 popup.appendChild(closeButton);
 
 // Add an image button to the popup
@@ -114,7 +120,16 @@ prevPopup = popup;
          translation.innerHTML = `<span class="bold-text">Translation:</span> ${Translation}`;
          translation.classList.add("popup-translation");
          content.appendChild(translation);
-         
+          
+         //Creating More info link inside popup
+         let link = document.createElement("a");
+         let linkname = document.createTextNode("More info");
+         link.appendChild(linkname);
+         link.href = GetWikiLink(clickedWord)
+         document.body.appendChild(link);
+         link.target = "blank";
+         link.rel ="noopener noreferrer"
+         content.appendChild(link)
 
          popup.replaceChild(content, spinner);
 
