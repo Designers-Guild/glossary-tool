@@ -59,7 +59,6 @@ imageButton.addEventListener("click", async() => {
     content.appendChild(img);
     imageCreated = true;
   } else {
-    // if an image has already been added, don't add another one
     img = content.querySelector("img");
   }
 });
