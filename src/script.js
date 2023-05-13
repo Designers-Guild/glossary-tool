@@ -218,38 +218,9 @@ function GetWikiLink(word) {
   return wikiLink
 }
 
-  //button to click to play audio// sends to assembly api
-function createPlayButton(word) {
-  var playButton = document.createElement("button");
-  playButton.textContent = "▶";
-  playButton.classList.add("playButton");
-  playButton.addEventListener("click", async function() {
-    if ('speechSynthesis' in window) {
-      await waitForVoicesReady(); // Wait for the voices to be loaded
-      
-      var utterance = new SpeechSynthesisUtterance(word);
-      speechSynthesis.speak(utterance);
-    } else {
-      console.error("Speech synthesis is not supported in this browser.");
-    }
-  });
-  return playButton;
-}
-//improve audio quality
-async function waitForVoicesReady() {
-  return new Promise((resolve) => {
-    if ('speechSynthesis' in window && speechSynthesis.getVoices().length !== 0) {
-      resolve();
-    } else {
-      speechSynthesis.onvoiceschanged = function() {
-        resolve();
-        speechSynthesis.onvoiceschanged = null; // Clean up the event listener
-      };
-    }
-  });
-}
+
   
-module.exports = { requestSynonym,requestTranslation,requestAntonym,requestDefinition,requestExampleSentence,requestHomonym, createImage,GetWikiLink, createPlayButton};
+module.exports = { requestSynonym,requestTranslation,requestAntonym,requestDefinition,requestExampleSentence,requestHomonym, createImage,GetWikiLink};
 
 
 
