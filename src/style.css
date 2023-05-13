@@ -1,4 +1,4 @@
-/* Popup styling */ 
+/* Popup styling */
 .popup {
   position: absolute;
   background: white;
@@ -13,6 +13,26 @@
   color: #444;
   line-height: 1.5em;
   border-radius: 5px;
+  cursor: cursor; /* Add cursor style for dragging */
+}
+
+/*styling for the move cursor*/
+.popup-header {
+  position: absolute;
+  top: 10px;
+  right: 155px; /* Increase the right value to create space for the image button */
+  width: 25px;
+  height: 25px;
+  border: none;
+  background: none;
+  color: #444;
+  font-size: 18px;
+  cursor: move;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
 }
 
 /* Spinner animation */
@@ -84,6 +104,35 @@
     width: 20px;
     height: 20px;
   }
+
+  .popup .playButton {
+    position: absolute;
+    top: 10px;
+    right: 120px; /* Increase the right value to create space for the image button */
+    width: 25px;
+    height: 25px;
+    border: none;
+    background: none;
+    color: #444;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+  }
+  
+  .popup .playButton:hover {
+    color: #7983ff;
+  }
+  
+  .popup .playButton:focus {
+    box-shadow: none;
+    outline: none; /* Add this line to remove the outline */
+  }
+  
+  
 
 /* Placeholder styling for word */
 .popup-word {
