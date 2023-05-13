@@ -1,13 +1,13 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="58" lines-covered="39" line-rate="0.6724" branches-valid="6" branches-covered="1" branch-rate="0.1666" timestamp="1683467583873" complexity="0" version="0.1">
+<coverage lines-valid="77" lines-covered="39" line-rate="0.5064" branches-valid="12" branches-covered="1" branch-rate="0.0833" timestamp="1683979786510" complexity="0" version="0.1">
   <sources>
     <source>C:\Users\Salmaan\Desktop\Computer Science\COMS 3009 - Software Design\Project\glossary-tool</source>
   </sources>
   <packages>
-    <package name="main" line-rate="0.6724" branch-rate="0.1666">
+    <package name="main" line-rate="0.5064" branch-rate="0.0833">
       <classes>
-        <class name="script.js" filename="src\script.js" line-rate="0.6724" branch-rate="0.1666">
+        <class name="script.js" filename="src\script.js" line-rate="0.5064" branch-rate="0.0833">
           <methods>
             <method name="(anonymous_0)" hits="0" signature="()V">
               <lines>
@@ -57,6 +57,36 @@
             <method name="createImage" hits="0" signature="()V">
               <lines>
                 <line number="187" hits="0"/>
+              </lines>
+            </method>
+            <method name="GetWikiLink" hits="0" signature="()V">
+              <lines>
+                <line number="207" hits="0"/>
+              </lines>
+            </method>
+            <method name="createPlayButton" hits="0" signature="()V">
+              <lines>
+                <line number="214" hits="0"/>
+              </lines>
+            </method>
+            <method name="(anonymous_12)" hits="0" signature="()V">
+              <lines>
+                <line number="218" hits="0"/>
+              </lines>
+            </method>
+            <method name="waitForVoicesReady" hits="0" signature="()V">
+              <lines>
+                <line number="231" hits="0"/>
+              </lines>
+            </method>
+            <method name="(anonymous_14)" hits="0" signature="()V">
+              <lines>
+                <line number="232" hits="0"/>
+              </lines>
+            </method>
+            <method name="(anonymous_15)" hits="0" signature="()V">
+              <lines>
+                <line number="236" hits="0"/>
               </lines>
             </method>
           </methods>
@@ -118,7 +148,26 @@
             <line number="201" hits="0" branch="false"/>
             <line number="202" hits="0" branch="false"/>
             <line number="203" hits="0" branch="false"/>
-            <line number="205" hits="1" branch="false"/>
+            <line number="208" hits="0" branch="false"/>
+            <line number="209" hits="0" branch="false"/>
+            <line number="210" hits="0" branch="false"/>
+            <line number="215" hits="0" branch="false"/>
+            <line number="216" hits="0" branch="false"/>
+            <line number="217" hits="0" branch="false"/>
+            <line number="218" hits="0" branch="false"/>
+            <line number="219" hits="0" branch="true" condition-coverage="0% (0/2)"/>
+            <line number="220" hits="0" branch="false"/>
+            <line number="222" hits="0" branch="false"/>
+            <line number="223" hits="0" branch="false"/>
+            <line number="225" hits="0" branch="false"/>
+            <line number="228" hits="0" branch="false"/>
+            <line number="232" hits="0" branch="false"/>
+            <line number="233" hits="0" branch="true" condition-coverage="0% (0/4)"/>
+            <line number="234" hits="0" branch="false"/>
+            <line number="236" hits="0" branch="false"/>
+            <line number="237" hits="0" branch="false"/>
+            <line number="238" hits="0" branch="false"/>
+            <line number="244" hits="1" branch="false"/>
           </lines>
         </class>
       </classes>

@@ -70,24 +70,24 @@ document.addEventListener("dblclick", async (event) => {
 
     //move cursor
     // Attach the drag events to the popup header
-    let popupHeader = document.createElement("div");
-    popupHeader.classList.add("popup-header");
-    popupHeader.textContent = "➕";
+    let popupMover = document.createElement("div");
+    popupMover.textContent = "➕";
+    popupMover.classList.add("popupMover");
+    popup.appendChild(popupMover);
 
-    popupHeader.addEventListener("mousedown", dragStart);
+    popupMover.addEventListener("mousedown", dragStart);
     document.addEventListener("mousemove", drag);
     document.addEventListener("mouseup", dragEnd);
 
-    popup.appendChild(popupHeader);
 
      // Add a close button to the popup
-    let closeButton = document.createElement("closeButton");
-    closeButton.innerText = "X";
+    let closeButton = document.createElement("button");
+    closeButton.textContent = "✖️";
+    closeButton.classList.add("closeButton");
+    popup.appendChild(closeButton);
     closeButton.addEventListener("click", () => {
     popup.remove();
 });
-
-popup.appendChild(closeButton);
 
 
 
@@ -148,9 +148,13 @@ prevPopup = popup;
          translation.classList.add("popup-translation");
          content.appendChild(translation);
 
+              // Add a close button to the popup
+
+
+
          // Add an image button to the popup
          //the image button appears once the request is successful
-          let imageButton = document.createElement("imageButton");
+          let imageButton = document.createElement("button");
           imageButton.classList.add("imageButton"); // add the "imageButton" class to the button
           let icon = document.createElement("img");
           icon.src = "https://cdn-icons-png.flaticon.com/512/223/223117.png";
@@ -170,17 +174,15 @@ prevPopup = popup;
           
           //LINK Request
          //Creating More info link inside popup
-         let link = document.createElement("a");
-         let linkname = document.createTextNode("More info");
-         link.appendChild(linkname);
-         link.href = GetWikiLink(clickedWord)
-         document.body.appendChild(link);
-         link.target = "blank";
-         link.rel ="noopener noreferrer"
-         content.appendChild(link)
 
-         
-
+         var linkButton = document.createElement("a");
+         linkButton.textContent = "🔗";
+         linkButton.classList.add("linkButton");
+         linkButton.href = GetWikiLink(clickedWord)
+         linkButton.target = "blank";
+         linkButton.rel ="noopener noreferrer"
+         popup.appendChild(linkButton);
+        
          popup.replaceChild(content, spinner);
 
 
