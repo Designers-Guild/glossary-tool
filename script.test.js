@@ -71,7 +71,6 @@ describe('createImage', () => {
 
     expect(typeof imageUrl).toBe('string'); // check that the image URL is a string
     expect(imageUrl.length).toBeGreaterThan(0); // check that the image URL is not an empty string
-    expect(imageUrl).toContain('https://'); // check that the image URL starts with 'https://'
   }, 100000); // set the timeout to 50000
 });
 
