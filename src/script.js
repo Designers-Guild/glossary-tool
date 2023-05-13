@@ -1,4 +1,4 @@
-apiKey = "ssk-fiY6pQ1k1Hx08yL0NiOAT3BlbkFJ73gxuHYrzKKKWS4N3TpS";
+apiKey = "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";
 
 var language;
 if (typeof jest === "undefined") { // exclude this block when running Jest tests
