@@ -202,6 +202,7 @@ async function requestHomonym(word) {
     const url = data.data[0].url;
     return url;
   }
+  
 module.exports = { requestSynonym,requestTranslation,requestAntonym,requestDefinition,requestExampleSentence,requestHomonym, createImage};
 
 
