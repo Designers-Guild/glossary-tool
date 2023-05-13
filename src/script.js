@@ -25,7 +25,7 @@ chrome.storage.sync.set({'language': 'Afrikaans'}, function() {
 
 
 // Function connects to OpenAI API and returns a synonym for the word passed in
-async function requestSynonym(word) {
+async function requestSynonym(word,context) {
 const requestOptions = {
   method: "POST",
   headers: {
@@ -36,7 +36,7 @@ const requestOptions = {
     model: "gpt-3.5-turbo",
     messages: [{role: "system", content: "From now on, I only want single word answers."},
      {role: "system", content: "You are the oxford dictionary."}
-    ,{role: "user", content:`Provide me with a synonym of "${word}".`}],
+    ,{role: "user", content:`Provide me with a synonym of "${word}" in context of "${context}".`}],
   }),
 };
 
@@ -105,7 +105,7 @@ async function requestAntonym(word) {
   }
 
 // Function connects to OpenAI API and returns a definition  for the word passed in
-async function requestDefinition(word) {
+async function requestDefinition(word,context) {
   const requestOptions = {
     method: "POST",
     headers: {
@@ -116,7 +116,7 @@ async function requestDefinition(word) {
       model: "gpt-3.5-turbo",
       messages: [
        {role: "system", content: "You are the oxford dictionary."}
-      ,{role: "user", content:`Provide me with a definition of "${word}".`}],
+      ,{role: "user", content:`Provide me with a definition of "${word}" in context of "${context}".`}],
     }),
   };
   

@@ -49,6 +49,27 @@ document.addEventListener("dblclick", async (event) => {
   let clickedWord = window.getSelection().toString().trim();
   console.log(clickedWord);
 
+    // Get the text content of the clicked element
+  let clickedElement = event.target;
+  let textContent = clickedElement.textContent;
+
+  // Split the text into an array of words
+  let words = textContent.split(" ");
+
+  // Find the index of the clicked word
+  let index = words.indexOf(clickedWord);
+
+  // Extract the 10 words before and after the clicked word
+  let start = Math.max(0, index - 10);
+  let end = Math.min(words.length - 1, index + 10);
+  let contextWords = words.slice(start, end + 1);
+
+  // Join the context words back into a string
+  let contextString = contextWords.join(" ");
+
+  // Log the context string for testing
+  console.log(contextString);
+
   // Create the popup and spinner elements
   let popup = document.createElement("div");
   popup.classList.add("popup");
@@ -135,9 +156,9 @@ prevPopup = popup;
 
          //CHATGPT Requests
          const [synonym, antonym, definition, ExampleSentence, Homonym, Translation, Image ] = await Promise.all([
-          requestSynonym(clickedWord),
+          requestSynonym(clickedWord,contextString),
           requestAntonym(clickedWord),
-          requestDefinition(clickedWord),
+          requestDefinition(clickedWord,contextString),
           requestExampleSentence(clickedWord),
           requestHomonym(clickedWord),
           requestTranslation(clickedWord),
