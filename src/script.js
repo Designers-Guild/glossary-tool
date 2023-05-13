@@ -1,24 +1,43 @@
 apiKey = "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";
 
-var language;
+// Get the root element of the document
+var root = document.documentElement;
+// Set the value of the --bg-color variable to default
+root.style.setProperty('--bg-color', '#7983ff');
+
+var language,colour;
 if (typeof jest === "undefined") { // exclude this block when running Jest tests
 
   // Default language is Afrikaans
 chrome.storage.sync.set({'language': 'Afrikaans'}, function() {
   console.log('Language set to Afrikaans.');
 });
-
+  // Default background
+  chrome.storage.sync.set({'colour': 'default'}, function() {
+  });
 
   // Read the language from storage and store it in the global variable
   chrome.storage.sync.get(['language'], function(items) {
     language = items.language;
     console.log("Language: " + language);
   });
+  // Read the colour from storage and store it in the global variable
+  chrome.storage.sync.get(['colour'], function(items) {
+    colour = items.colour;
+  });
   // Listen for changes to the "language" key
   chrome.storage.onChanged.addListener(function(changes, areaName) {
     if (areaName === 'sync' && changes.language) {
       language = changes.language.newValue;
       console.log('Language updated to ' + language);
+    }
+  });
+  // Listen for changes to the "colour" key
+  chrome.storage.onChanged.addListener(function(changes, areaName) {
+    if (areaName === 'sync' && changes.colour) {
+      colour = changes.colour.newValue;
+      root.style.setProperty('--bg-color', colour.toString());
+      console.log('COL updated to ' + colour);
     }
   });
 }
