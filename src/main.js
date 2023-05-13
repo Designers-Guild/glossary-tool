@@ -1,4 +1,4 @@
-const { requestSynonym,requestTranslation ,requestAntonym,requestDefinition,requestExampleSentence,requestHomonym, createImage} = require('./script.js');
+const { requestSynonym,requestTranslation ,requestAntonym,requestDefinition,requestExampleSentence,requestHomonym, createImage, GetWikiLink,createPlayButton} = require('./script.js');
 
 //Set prevPop to null, initially when theres no popups on page
 let prevPopup=null; 
@@ -87,44 +87,9 @@ document.addEventListener("dblclick", async (event) => {
     popup.remove();
 });
 
-//Making a wiki link for the word
-function GetWikiLink(word) {
-  var encodedWord = encodeURIComponent(word);
-  var wikiLink = `https://en.wikipedia.org/wiki/${encodedWord}`;
-  return wikiLink
-}
 popup.appendChild(closeButton);
 
-//button to click to play audio// sends to assembly api
-function createPlayButton(word) {
-  var playButton = document.createElement("button");
-  playButton.textContent = "▶";
-  playButton.classList.add("playButton");
-  playButton.addEventListener("click", async function() {
-    if ('speechSynthesis' in window) {
-      await waitForVoicesReady(); // Wait for the voices to be loaded
-      
-      var utterance = new SpeechSynthesisUtterance(word);
-      speechSynthesis.speak(utterance);
-    } else {
-      console.error("Speech synthesis is not supported in this browser.");
-    }
-  });
-  return playButton;
-}
-//improve audio quality
-async function waitForVoicesReady() {
-  return new Promise((resolve) => {
-    if ('speechSynthesis' in window && speechSynthesis.getVoices().length !== 0) {
-      resolve();
-    } else {
-      speechSynthesis.onvoiceschanged = function() {
-        resolve();
-        speechSynthesis.onvoiceschanged = null; // Clean up the event listener
-      };
-    }
-  });
-}
+
 
 document.body.appendChild(popup);
 
@@ -132,10 +97,12 @@ prevPopup = popup;
 
          let content = document.createElement("div");
 
+         //ASSEMBLY Requests
          //add the play button to the popup. Since it uses its own api, async functions, it need not be at the bottom
          let bb = createPlayButton(clickedWord);
          content.appendChild(bb);
 
+         //CHATGPT Requests
          const [synonym, antonym, definition, ExampleSentence, Homonym, Translation, Image ] = await Promise.all([
           requestSynonym(clickedWord),
           requestAntonym(clickedWord),
@@ -201,6 +168,7 @@ prevPopup = popup;
           });
           popup.appendChild(imageButton);
           
+          //LINK Request
          //Creating More info link inside popup
          let link = document.createElement("a");
          let linkname = document.createTextNode("More info");
