@@ -1,4 +1,4 @@
-const { requestSynonym, requestTranslation, requestAntonym, requestDefinition, requestExampleSentence, requestHomonym } = require("./src/script");
+const { requestSynonym, requestTranslation, requestAntonym, requestDefinition, requestExampleSentence, requestHomonym, createImage, GetWikiLink } = require("./src/script");
 
 describe("requestSynonym function", () => {
   test("should return a synonym for the provided word", async () => {
@@ -62,4 +62,27 @@ describe('requestHomonym', () => {
     expect(homonym).not.toBe('happy'); // check that the homonym is not the same as the original word
     expect(homonym.length).toBeGreaterThan(0); // check that the homonym is not an empty string
   }, 50000); // set the timeout to 50000
+});
+
+describe('createImage', () => {
+  test('should return a URL for an image generated based on the word passed in', async () => {
+    const word = 'cat';
+    const imageUrl = await createImage(word);
+
+    expect(typeof imageUrl).toBe('string'); // check that the image URL is a string
+    expect(imageUrl.length).toBeGreaterThan(0); // check that the image URL is not an empty string
+    expect(imageUrl).toContain('https://'); // check that the image URL starts with 'https://'
+  }, 50000); // set the timeout to 50000
+});
+
+describe('GetWikiLink', () => {
+  test('should return a URL for the Wikipedia page of the word passed in', () => {
+    const word = 'dog';
+    const wikiLink = GetWikiLink(word);
+
+    expect(typeof wikiLink).toBe('string'); // check that the wikiLink is a string
+    expect(wikiLink.length).toBeGreaterThan(0); // check that the wikiLink is not an empty string
+    expect(wikiLink).toContain('https://en.wikipedia.org/wiki/'); // check that the wikiLink starts with 'https://en.wikipedia.org/wiki/'
+    expect(wikiLink).toContain('dog'); // check that the wikiLink contains the word 'dog'
+  });
 });

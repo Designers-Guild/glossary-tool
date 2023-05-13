@@ -1,13 +1,13 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="77" lines-covered="39" line-rate="0.5064" branches-valid="12" branches-covered="1" branch-rate="0.0833" timestamp="1683979786510" complexity="0" version="0.1">
+<coverage lines-valid="77" lines-covered="46" line-rate="0.5974" branches-valid="12" branches-covered="1" branch-rate="0.0833" timestamp="1683981074579" complexity="0" version="0.1">
   <sources>
     <source>C:\Users\Salmaan\Desktop\Computer Science\COMS 3009 - Software Design\Project\glossary-tool</source>
   </sources>
   <packages>
-    <package name="main" line-rate="0.5064" branch-rate="0.0833">
+    <package name="main" line-rate="0.5974" branch-rate="0.0833">
       <classes>
-        <class name="script.js" filename="src\script.js" line-rate="0.5064" branch-rate="0.0833">
+        <class name="script.js" filename="src\script.js" line-rate="0.5974" branch-rate="0.0833">
           <methods>
             <method name="(anonymous_0)" hits="0" signature="()V">
               <lines>
@@ -54,14 +54,14 @@
                 <line number="162" hits="1"/>
               </lines>
             </method>
-            <method name="createImage" hits="0" signature="()V">
+            <method name="createImage" hits="1" signature="()V">
               <lines>
-                <line number="187" hits="0"/>
+                <line number="187" hits="1"/>
               </lines>
             </method>
-            <method name="GetWikiLink" hits="0" signature="()V">
+            <method name="GetWikiLink" hits="1" signature="()V">
               <lines>
-                <line number="207" hits="0"/>
+                <line number="207" hits="1"/>
               </lines>
             </method>
             <method name="createPlayButton" hits="0" signature="()V">
@@ -144,13 +144,13 @@
             <line number="180" hits="1" branch="false"/>
             <line number="181" hits="1" branch="false"/>
             <line number="183" hits="0" branch="false"/>
-            <line number="188" hits="0" branch="false"/>
-            <line number="201" hits="0" branch="false"/>
-            <line number="202" hits="0" branch="false"/>
-            <line number="203" hits="0" branch="false"/>
-            <line number="208" hits="0" branch="false"/>
-            <line number="209" hits="0" branch="false"/>
-            <line number="210" hits="0" branch="false"/>
+            <line number="188" hits="1" branch="false"/>
+            <line number="201" hits="1" branch="false"/>
+            <line number="202" hits="1" branch="false"/>
+            <line number="203" hits="1" branch="false"/>
+            <line number="208" hits="1" branch="false"/>
+            <line number="209" hits="1" branch="false"/>
+            <line number="210" hits="1" branch="false"/>
             <line number="215" hits="0" branch="false"/>
             <line number="216" hits="0" branch="false"/>
             <line number="217" hits="0" branch="false"/>
