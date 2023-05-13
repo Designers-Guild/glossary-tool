@@ -159,28 +159,33 @@ prevPopup = popup;
         antonymDiv.classList.add("popup-antonym");
         content.appendChild(antonymDiv);
         
-        let definitionDiv = document.createElement("div");
-        definitionDiv.innerHTML = `<span class="bold-text">Definition:</span> ${definition}`;
-        definitionDiv.classList.add("popup-definition");
-        content.appendChild(definitionDiv);
 
-         let examplesentence = document.createElement("div");
-         examplesentence.innerHTML = `<span class="bold-text">Example Sentence:</span> ${ExampleSentence}`;
-         examplesentence.classList.add("popup-example");
-         content.appendChild(examplesentence);
-         
          let homonym = document.createElement("div");
          homonym.innerHTML = `<span class="bold-text">Homonym:</span> ${Homonym}`;
          homonym.classList.add("popup-homonym");
          content.appendChild(homonym);
-         
+
          let translation = document.createElement("div");
          translation.innerHTML = `<span class="bold-text">Translation:</span> ${Translation}`;
          translation.classList.add("popup-translation");
          content.appendChild(translation);
 
-              // Add a close button to the popup
+         
+         let definitionDiv = document.createElement("div");
+         definitionDiv.innerHTML = `<span class="bold-text">Definition:</span> ${definition}`;
+         definitionDiv.classList.add("popup-definition");
+         content.appendChild(definitionDiv);
+ 
+          let examplesentence = document.createElement("div");
+          examplesentence.innerHTML = `<span class="bold-text">Example Sentence:</span> ${ExampleSentence}`;
+          examplesentence.classList.add("popup-example");
+          content.appendChild(examplesentence);
+          
 
+
+              const image = document.createElement('div'); // create a new div element
+              image.classList.add('popup-img'); // add the popup-img class to the div
+              popup.insertBefore(image, popup.firstChild);
 
 
          // Add an image button to the popup
@@ -194,8 +199,10 @@ prevPopup = popup;
             let img;
             if (!imageCreated) {
               img = document.createElement("img"); 
-              img.src = Image; 
-              content.appendChild(img);
+              img.src = "https://winaero.com/blog/wp-content/uploads/2019/11/Photos-new-icon.png"; 
+              img.classList.add("created-img");
+              popup.removeChild(image);
+              popup.insertBefore(img, popup.firstChild);
               imageCreated = true;
             } else {
               img = content.querySelector("img");
@@ -213,9 +220,9 @@ prevPopup = popup;
          linkButton.target = "blank";
          linkButton.rel ="noopener noreferrer"
          popup.appendChild(linkButton);
-        
-         popup.replaceChild(content, spinner);
 
+
+         popup.replaceChild(content, spinner);
 
   
       }
