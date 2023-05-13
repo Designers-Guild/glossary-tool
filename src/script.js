@@ -184,24 +184,32 @@ async function requestHomonym(word) {
     }
     
   }
+
   async function createImage(word) {
-    const response = await fetch('https://api.openai.com/v1/images/generations', {
-      method: 'POST',
+    const requestOptions = {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
         'model': 'image-alpha-001',
         'prompt': word,
         'num_images': 1,
         'size':  '256x256'
-      })
-    });
-    const data = await response.json();
-    const url = data.data[0].url;
-    return url;
-  }
+      }),
+    };
+    
+      try {
+        const response = await fetch("https://api.openai.com/v1/images/generations", requestOptions);
+        const data = await response.json();
+        const url = data.data[0].url;
+        return url;
+      } catch (error) {
+        return "Please try again";
+      }
+      
+    }
 
   //Making a wiki link for the word
 function GetWikiLink(word) {
