@@ -230,6 +230,12 @@ prevPopup = popup;
             }
           });
           popup.appendChild(imageButton);
+          /* 
+          If we remove this line, the imageCreated variable will retain its true value even after it has been set once. 
+          As a result, we will not be able to generate images for 
+          different words within the same window without reloading the window/browser.
+          */
+          imageCreated=false; //reset image created to false,so --> no image created for next usage
           
           //LINK Request
          //Creating More info link inside popup
