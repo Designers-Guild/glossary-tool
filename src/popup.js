@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     const languageSelect = document.getElementById('language');
     const saveButton = document.getElementById('save-button');
-    const backgroundColorDropdown = document.getElementById("background-color");
+    const backgroundColorDropdown = document.getElementById("backgroundColor");
 
     // Load the saved language preference (if any)
     chrome.storage.sync.get(['language'], function(items) {
@@ -10,9 +10,9 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log(`Selected language: ${languageSelect.value}`);
       }
     });
-    chrome.storage.sync.get(['colour'], function(items) {
-      if (items.colour) {
-        backgroundColorDropdown.value = items.colour;
+    chrome.storage.sync.get(['backgroundColor'], function(items) {
+      if (items.backgroundColor) {
+        backgroundColorDropdown.value = items.backgroundColor;
       }
     });
   
@@ -23,8 +23,8 @@ document.addEventListener("DOMContentLoaded", function() {
       chrome.storage.sync.set({ 'language': selectedLanguage }, function() {
         console.log('Language set to ' + selectedLanguage);
       });
-      chrome.storage.sync.set({ 'colour': backgroundColorDropdown.value }, function() {
-        console.log('Colour set to ' + backgroundColorDropdown);
+      chrome.storage.sync.set({ 'backgroundColor': selectedColour}, function() {
+        console.log('Colour set to ' +selectedColour);
       });
       
       window.close(); // Close the popup window

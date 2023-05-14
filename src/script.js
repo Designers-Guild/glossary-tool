@@ -5,50 +5,57 @@ var root = document.documentElement;
 // Set the value of the --bg-color variable to default
 root.style.setProperty('--bg-color', '#7983ff');
 
-var language,colour;
+var language,backgroundColor;
 if (typeof jest === "undefined") { // exclude this block when running Jest tests
 
-  // Read the language from storage and store it in the global variable
-  chrome.storage.sync.get(['language'], function(items) {
-  language = items.language;
-  if (typeof language === "undefined") {
-  // Default language is Afrikaans
-  chrome.storage.sync.set({'language': 'Afrikaans'}, function() {
-  console.log('Language set to Afrikaans.');
-  language = 'Afrikaans';
-  });
-  }
-  else {
-  console.log("Language: " + language);
-  }
-  });
-  
-  // Default background
-  chrome.storage.sync.set({'colour': 'default'}, function() {});
-  
-  // Read the colour from storage and store it in the global variable
-  chrome.storage.sync.get(['colour'], function(items) {
-  colour = items.colour;
-  });
-  
-  // Listen for changes to the "language" key
-  chrome.storage.onChanged.addListener(function(changes, areaName) {
-  if (areaName === 'sync' && changes.language) {
-  language = changes.language.newValue;
-  console.log('Language updated to ' + language);
-  }
-  });
-  
-  // Listen for changes to the "colour" key
-  chrome.storage.onChanged.addListener(function(changes, areaName) {
-  if (areaName === 'sync' && changes.colour) {
-  colour = changes.colour.newValue;
-  root.style.setProperty('--bg-color', colour.toString());
-  console.log('COL updated to ' + colour);
-  }
-  });
-  }
+// Read the language from storage and store it in the global variable
+chrome.storage.sync.get(['language'], function(items) {
+language = items.language;
+if (typeof language === "undefined") {
+// Default language is Afrikaans
+chrome.storage.sync.set({'language': 'Afrikaans'}, function() {
+console.log('Language set to Afrikaans.');
+language = 'Afrikaans';
+});
+}
+else {
+console.log("Language: " + language);
+}
+});
 
+// Read the colour from storage and store it in the global variable
+chrome.storage.sync.get(['backgroundColor'], function(items) {
+  backgroundColor = items.backgroundColor;
+if (typeof backgroundColor === "undefined") {
+// Default colour is "default"
+chrome.storage.sync.set({'backgroundColor': '#6b9fc4'}, function() {
+console.log('Colour set to Default.');
+backgroundColor = '#6b9fc4';
+});
+}
+else {
+root.style.setProperty('--bg-color', backgroundColor.toString());
+console.log('Colour: ' + backgroundColor);
+}
+});
+
+// Listen for changes to the "language" key
+chrome.storage.onChanged.addListener(function(changes, areaName) {
+if (areaName === 'sync' && changes.language) {
+language = changes.language.newValue;
+console.log('Language updated to ' + language);
+}
+});
+
+// Listen for changes to the "colour" key
+chrome.storage.onChanged.addListener(function(changes, areaName) {
+if (areaName === 'sync' && changes.backgroundColor) {
+  backgroundColor = changes.backgroundColor.newValue;
+root.style.setProperty('--bg-color', backgroundColor.toString());
+console.log('Colour updated to ' + backgroundColor);
+}
+});
+}
 
 // Function connects to OpenAI API and returns a synonym for the word passed in
 async function requestSynonym(word,context) {
