@@ -8,39 +8,46 @@ root.style.setProperty('--bg-color', '#7983ff');
 var language,colour;
 if (typeof jest === "undefined") { // exclude this block when running Jest tests
 
-  // Default language is Afrikaans
-chrome.storage.sync.set({'language': 'Afrikaans'}, function() {
-  console.log('Language set to Afrikaans.');
-});
-  // Default background
-  chrome.storage.sync.set({'colour': 'default'}, function() {
-  });
-
   // Read the language from storage and store it in the global variable
   chrome.storage.sync.get(['language'], function(items) {
-    language = items.language;
-    console.log("Language: " + language);
+  language = items.language;
+  if (typeof language === "undefined") {
+  // Default language is Afrikaans
+  chrome.storage.sync.set({'language': 'Afrikaans'}, function() {
+  console.log('Language set to Afrikaans.');
+  language = 'Afrikaans';
   });
+  }
+  else {
+  console.log("Language: " + language);
+  }
+  });
+  
+  // Default background
+  chrome.storage.sync.set({'colour': 'default'}, function() {});
+  
   // Read the colour from storage and store it in the global variable
   chrome.storage.sync.get(['colour'], function(items) {
-    colour = items.colour;
+  colour = items.colour;
   });
+  
   // Listen for changes to the "language" key
   chrome.storage.onChanged.addListener(function(changes, areaName) {
-    if (areaName === 'sync' && changes.language) {
-      language = changes.language.newValue;
-      console.log('Language updated to ' + language);
-    }
+  if (areaName === 'sync' && changes.language) {
+  language = changes.language.newValue;
+  console.log('Language updated to ' + language);
+  }
   });
+  
   // Listen for changes to the "colour" key
   chrome.storage.onChanged.addListener(function(changes, areaName) {
-    if (areaName === 'sync' && changes.colour) {
-      colour = changes.colour.newValue;
-      root.style.setProperty('--bg-color', colour.toString());
-      console.log('COL updated to ' + colour);
-    }
+  if (areaName === 'sync' && changes.colour) {
+  colour = changes.colour.newValue;
+  root.style.setProperty('--bg-color', colour.toString());
+  console.log('COL updated to ' + colour);
+  }
   });
-}
+  }
 
 
 // Function connects to OpenAI API and returns a synonym for the word passed in
