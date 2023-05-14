@@ -1,13 +1,14 @@
 apiKey = "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";
 
+
+
+var language,backgroundColor;
+if (typeof jest === "undefined") { // exclude this block when running Jest tests
+  
 // Get the root element of the document
 var root = document.documentElement;
 // Set the value of the --bg-color variable to default
 root.style.setProperty('--bg-color', '#7983ff');
-
-var language,backgroundColor;
-if (typeof jest === "undefined") { // exclude this block when running Jest tests
-
 // Read the language from storage and store it in the global variable
 chrome.storage.sync.get(['language'], function(items) {
 language = items.language;
