@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     chrome.storage.sync.get(['textColor'], function(items) {
       if (items.textColor) {
-        textColor.value = items.textColor;
+        textColorDropdown.value = items.textColor;
       }
     });
   
