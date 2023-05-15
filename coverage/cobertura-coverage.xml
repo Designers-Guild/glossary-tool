@@ -7,7 +7,7 @@
   <packages>
     <package name="main" line-rate="0.4842" branch-rate="0.05">
       <classes>
-        <class name="script.js" filename="src\script.js" line-rate="0.4842" branch-rate="0.05">
+        <class name="script.js" filename="src\script.js" line-rate="0.6442" branch-rate="0.05">
           <methods>
             <method name="(anonymous_0)" hits="0" signature="()V">
               <lines>
