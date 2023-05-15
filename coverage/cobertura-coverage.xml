@@ -1,11 +1,11 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="95" lines-covered="46" line-rate="0.4842" branches-valid="20" branches-covered="1" branch-rate="0.05" timestamp="1684144545893" complexity="0" version="0.1">
+<coverage lines-valid="95" lines-covered="46" line-rate="0.6442" branches-valid="20" branches-covered="1" branch-rate="0.05" timestamp="1684144545893" complexity="0" version="0.1">
   <sources>
     <source>C:\Users\Salmaan\Desktop\Computer Science\COMS 3009 - Software Design\Project\glossary-tool</source>
   </sources>
   <packages>
-    <package name="main" line-rate="0.4842" branch-rate="0.05">
+    <package name="main" line-rate="0.6442" branch-rate="0.05">
       <classes>
         <class name="script.js" filename="src\script.js" line-rate="0.6442" branch-rate="0.05">
           <methods>
