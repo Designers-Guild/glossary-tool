@@ -60,8 +60,8 @@ document.addEventListener("dblclick", async (event) => {
   let index = words.indexOf(clickedWord);
 
   // Extract the 10 words before and after the clicked word
-  let start = Math.max(0, index - 10);
-  let end = Math.min(words.length - 1, index + 10);
+  let start = Math.max(0, index - 20);
+  let end = Math.min(words.length - 1, index + 20);
   let contextWords = words.slice(start, end + 1);
 
   // Join the context words back into a string
@@ -157,9 +157,9 @@ prevPopup = popup;
          //CHATGPT Requests
          const [synonym, antonym, definition, ExampleSentence, Homonym, Translation, Image ] = await Promise.all([
           requestSynonym(clickedWord,contextString),
-          requestAntonym(clickedWord),
+          requestAntonym(clickedWord,contextString),
           requestDefinition(clickedWord,contextString),
-          requestExampleSentence(clickedWord),
+          requestExampleSentence(clickedWord,contextString),
           requestHomonym(clickedWord),
           requestTranslation(clickedWord),
           createImage(clickedWord)

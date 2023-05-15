@@ -97,7 +97,7 @@ const requestOptions = {
     model: "gpt-3.5-turbo",
     messages: [{role: "system", content: "From now on, I only want single word answers."},
      {role: "system", content: "You are the oxford dictionary."}
-    ,{role: "user", content:`Provide me with a synonym of "${word}" in context of "${context}".`}],
+    ,{role: "user", content:`Provide me with a synonym of "${word}". Note that the word is used in this context: "${context}".`}],
   }),
 };
 
@@ -139,7 +139,7 @@ async function requestTranslation(word) {
   }
 
 // Function connects to OpenAI API and returns a Antnonym for the word passed in
-async function requestAntonym(word) {
+async function requestAntonym(word,context) {
   const requestOptions = {
     method: "POST",
     headers: {
@@ -150,7 +150,7 @@ async function requestAntonym(word) {
       model: "gpt-3.5-turbo",
       messages: [{role: "system", content: "From now on, I only want single word answers."},
        {role: "system", content: "You are the oxford dictionary."}
-      ,{role: "user", content:`Provide me with a antonnym of "${word}".`}],
+      ,{role: "user", content:`Provide me with a antonnym of "${word}". Note that the word is used in this context: "${context}"`}],
     }),
   };
   
@@ -176,8 +176,8 @@ async function requestDefinition(word,context) {
     body: JSON.stringify({
       model: "gpt-3.5-turbo",
       messages: [
-       {role: "system", content: "You are the oxford dictionary."}
-      ,{role: "user", content:`Provide me with a definition of "${word}" in context of "${context}".`}],
+       {role: "system", content: "You are the oxford dictionary. Provide a simple defintion only. If the context is insufficient, provide any simple,general defnition of the word."}
+      ,{role: "user", content:`Provide me with a simple definition of "${word}". Note that the word is used in this context: "${context}"`}],
     }),
   };
   
@@ -193,7 +193,7 @@ async function requestDefinition(word,context) {
   }
 
   // Function connects to OpenAI API and returns an example sentence for the word passed in
-async function requestExampleSentence(word) {
+async function requestExampleSentence(word,context) {
 const requestOptions = {
   method: "POST",
   headers: {
@@ -203,8 +203,8 @@ const requestOptions = {
   body: JSON.stringify({
     model: "gpt-3.5-turbo",
     messages: [
-     {role: "system", content: "You are the oxford dictionary."}
-    ,{role: "user", content:`Provide me with an example sentence containing "${word}".`}],
+     {role: "system", content: "You are a simple-example-sentence-generator. Provide an example sentence only. Do not use the same context for the sentence."}
+    ,{role: "user", content:`Provide me with a simple example sentence containing "${word}". Note that the word is used in this context: "${context}".`}],
   }),
 };
 
