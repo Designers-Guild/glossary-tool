@@ -14,6 +14,7 @@ const config = (env, argv) =>
       popup : PATHS.src + '/popup.js',
       style: PATHS.src + '/style.css',
       colour: PATHS.src + '/colour.js',
+      APIkeys: PATHS.src + '/APIkeys.js',
 
     },
     devtool: argv.mode === 'production' ? false : 'source-map',
