@@ -13,6 +13,7 @@ const config = (env, argv) =>
       main : PATHS.src + '/main.js',
       popup : PATHS.src + '/popup.js',
       style: PATHS.src + '/style.css',
+      colour: PATHS.src + '/colour.js',
 
     },
     devtool: argv.mode === 'production' ? false : 'source-map',
