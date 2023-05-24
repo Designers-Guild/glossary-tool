@@ -25,11 +25,13 @@ describe('requestTranslation', () => {
 describe('requestAntonym', () => {
   test('should return a antonym for the word passed in', async () => {
     const word = 'happy';
-    const antonym = await requestAntonym(word);
+    const context = "I'm glad to see you looking so happy today."
+    const antonyms = ["Sad.", "Angry.", "Unhappy.", "Miserable."];
+    const antonym = await requestAntonym(word,context);
 
     expect(typeof antonym).toBe('string'); // check that the antonym is a string
     expect(antonym).not.toBe('happy'); // check that the antonym is not the same as the original word
-    expect(antonym.length).toBeGreaterThan(0); // check that the antonym is not an empty string
+    expect(antonyms.includes(antonym)).toBe(true);// check that the antonym is not an empty string
   }, 50000); // set the timeout to 50000
 });
 
