@@ -1,5 +1,5 @@
 const { requestSynonym, requestTranslation, requestAntonym, requestDefinition, requestExampleSentence, requestHomonym, createImage, GetWikiLink } = require("./src/script");
-
+apiKey = "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";
 
 describe("requestSynonym function", () => {
   test("should return a synonym for the provided word", async () => {
