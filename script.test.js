@@ -1,5 +1,12 @@
 const { requestSynonym, requestTranslation, requestAntonym, requestDefinition, requestExampleSentence, requestHomonym, createImage, GetWikiLink } = require("./src/script");
 
+describe('Network Connectivity', () => {
+  it('should have network connectivity', async () => {
+    const response = await fetch('https://www.google.com');
+    expect(response.ok).toBe(true);
+  });
+});
+
 describe("requestSynonym function", () => {
   test("should return a synonym for the provided word", async () => {
     const word = "happy";
