@@ -7,8 +7,7 @@ jobs:
     steps:
       - checkout
       - run: npm install
-      - run:
-          name: Run tests
-          command: |
-            npm run build # If necessary, build your extension
-            npm test -- src/script.test.js # Specify the test file or pattern for your script.js tests
+      - run: npm run test
+
+
+      
