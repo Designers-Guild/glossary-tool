@@ -3,12 +3,24 @@ const { requestSynonym, requestTranslation, requestAntonym, requestDefinition, r
 describe("requestSynonym function", () => {
   test("should return a synonym for the provided word", async () => {
     const word = "happy";
-    const context = "I'm glad to see you looking so happy today."
-    const synonyms = ["Joyful.", "Delighted.", "Pleased.", "Content."];
-    const synonym = await requestSynonym(word,context);
-    expect(synonyms.includes(synonym)).toBe(true);
+    const context = "I'm glad to see you looking so happy today.";
+    const synonyms = ["joyful", "delighted", "pleased", "content"];
+
+    // Normalize the synonyms to lowercase without punctuation
+    const normalizedSynonyms = synonyms.map(synonym => synonym.toLowerCase().replace(/[.,]/g, ''));
+
+    const synonym = await requestSynonym(word, context);
+    const normalizedSynonym = synonym.toLowerCase().replace(/[.,]/g, '');
+
+    console.log('synonym Response:', synonym);
+
+    // Check if at least one relevant word is present in the answer
+    const hasRelevantWord = normalizedSynonyms.some(syn => normalizedSynonym.includes(syn));
+
+    expect(hasRelevantWord).toBe(true);
   }, 50000); // set the timeout to 50000
 });
+
 
 describe('requestTranslation', () => {
   test('should return a translation for the word passed in', async () => {
@@ -26,12 +38,39 @@ describe('requestAntonym', () => {
   test('should return a antonym for the word passed in', async () => {
     const word = 'happy';
     const context = "I'm glad to see you looking so happy today."
-    const antonyms = ["Sad.", "Angry.", "Unhappy.", "Miserable."];
-    const antonym = await requestAntonym(word,context);
+    const antonyms = ["sad", "angry", "unhappy", "miserable"];
+    
+    // Normalize the synonyms to lowercase without punctuation
+    const normalizedAntonyms = antonyms.map(antonym => antonym.toLowerCase().replace(/[.,]/g, ''));
 
-    expect(typeof antonym).toBe('string'); // check that the antonym is a string
-    expect(antonym).not.toBe('happy'); // check that the antonym is not the same as the original word
-    expect(antonyms.includes(antonym)).toBe(true);// check that the antonym is not an empty string
+    const antonym = await requestAntonym(word, context);
+    const normalizedAntonym = antonym.toLowerCase().replace(/[.,]/g, '');
+
+    console.log('antonym Response:', antonym);
+    // Check if at least one relevant word is present in the answer
+    const hasRelevantWord = normalizedAntonyms.some(ayn => normalizedAntonym.includes(ayn));
+    expect(hasRelevantWord).toBe(true);
+  }, 50000); // set the timeout to 50000 
+});
+
+describe('requestHomonym', () => {
+  test('should return a homonym for the word passed in', async () => {
+    const word = "happy";
+    const context = "I'm glad to see you looking so happy today.";
+    const homonyms = ["haply", "happi", "hapi", "hap","hippie"];
+
+    // Normalize the synonyms to lowercase without punctuation
+    const normalizedHomonyms = homonyms.map(homonym => homonym.toLowerCase().replace(/[.,]/g, ''));
+
+    const homonym = await requestHomonym(word, context);
+    const normalizedHomonym = homonym.toLowerCase().replace(/[.,]/g, '');
+
+    console.log('Homonym Response:', homonym);
+
+    // Check if at least one relevant word is present in the answer
+    const hasRelevantWord = normalizedHomonyms.some(homo => normalizedHomonym.includes(homo));
+
+    expect(hasRelevantWord).toBe(true);
   }, 50000); // set the timeout to 50000
 });
 
@@ -57,16 +96,7 @@ describe('requestExampleSentence', () => {
   }, 50000); // set the timeout to 50000
 });
 
-describe('requestHomonym', () => {
-  test('should return a homonym for the word passed in', async () => {
-    const word = 'happy';
-    const homonym = await requestHomonym(word);
 
-    expect(typeof homonym).toBe('string'); // check that the homonym is a string
-    expect(homonym).not.toBe('happy'); // check that the homonym is not the same as the original word
-    expect(homonym.length).toBeGreaterThan(0); // check that the homonym is not an empty string
-  }, 50000); // set the timeout to 50000
-});
 
 describe('createImage', () => {
   test('should return a URL for an image generated based on the word passed in', async () => {

@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="66" lines-covered="48" line-rate="0.7272" branches-valid="8" branches-covered="1" branch-rate="0.125" timestamp="1684939032938" complexity="0" version="0.1">
+<coverage lines-valid="66" lines-covered="48" line-rate="0.7272" branches-valid="8" branches-covered="1" branch-rate="0.125" timestamp="1684943594167" complexity="0" version="0.1">
   <sources>
     <source>C:\Users\Salmaan\Desktop\Computer Science\COMS 3009 - Software Design\Project\glossary-tool</source>
   </sources>
