@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: circleci/node:16
+      - image: cibuilds/base:latest
     working_directory: ~/app
     steps:
       - checkout
