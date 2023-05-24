@@ -12,12 +12,10 @@ language = items.language;
 if (typeof language === "undefined") {
 // Default language is Afrikaans
 chrome.storage.sync.set({'language': 'Afrikaans'}, function() {
-console.log('Language set to Afrikaans.');
 language = 'Afrikaans';
 });
 }
 else {
-console.log("Language: " + language);
 }
 });
 
@@ -26,7 +24,6 @@ console.log("Language: " + language);
 chrome.storage.onChanged.addListener(function(changes, areaName) {
 if (areaName === 'sync' && changes.language) {
 language = changes.language.newValue;
-console.log('Language updated to ' + language);
 }
 });
 
