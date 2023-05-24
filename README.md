@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/Designers-Guild/glossary-tool/tree/master.svg?style=svg&circle-token=dea071ac23f268cbdddac6d29804ebd87a61f34f)](https://dl.circleci.com/status-badge/redirect/gh/Designers-Guild/glossary-tool/tree/master)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/Designers-Guild/glossary-tool/tree/LatestGerrit.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/Designers-Guild/glossary-tool/tree/LatestGerrit)
 
 [![codecov](https://codecov.io/gh/Designers-Guild/glossary-tool/branch/master/graph/badge.svg?token=4EW0AE35X4)](https://codecov.io/gh/Designers-Guild/glossary-tool)
 
