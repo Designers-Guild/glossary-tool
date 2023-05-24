@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Language Selector</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+  <style>
+    /* Main container style */
+    body {
+      background-color: #1d1d1d;
+      display: flex;
+      align-items: center;
+      font-family: 'Roboto', sans-serif;
+      color: #fff;
+      margin: 0.5rem;
+      padding: 0.5rem;
+    }
+
+    /* Title style */
+    h2 {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    /* Select style */
+    .dropdown {
+      font-size: 1rem;
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: none;
+      margin-right: 1rem;
+      color: #333;
+      background-color: #fff;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    /* Save button style */
+    #save-button {
+      margin-top: 1.5rem;
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      border: none;
+      background-color: #4CAF50;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    /* Hover effect on the save button */
+    #save-button:hover {
+      background-color: #3e8e41;
+    }
+  </style>
+  <script src="popup.js"></script>
+</head>
+<body>
+  <div>
+    <h2>Select your preferred language:</h2>
+    <div>
+      <select class="dropdown" id="language">
+        <option value="Afrikaans">Afrikaans</option>
+        <option value="Sepedi">Sepedi</option>
+        <option value="isiZulu">isiZulu</option>
+        <option value="Sesotho">Sesotho</option>
+      </select>
+    </div>
+    <h2>Select your preferred text color:</h2>
+    <div>
+      <select class="dropdown" id="textColor">
+        <option value="#444444">Default</option>
+        <option value="#000000">Black</option>
+        <option value="#4D4DFF">Blue</option>
+        <option value="#FF00FF">Magenta</option>
+        <option value="#00FF00">Green</option>
+      </select>
+    </div>
+    <h2>Select your preferred background color:</h2>
+    <div>
+      <select class="dropdown" id="backgroundColor">
+        <option value="#6b9fc4">Default</option>
+        <option value="#FFFFFF">White</option>
+        <option value="#FFFF00">Yellow</option>
+        <option value="#00FFFF">Cyan</option>
+        <option value="#FFA500">Orange</option>
+      </select>
+    </div>
+    <button id="save-button">Save</button>
+  </div>
+</body>
+</html>

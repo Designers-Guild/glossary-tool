@@ -1,0 +1,274 @@
+:root {
+  --bg-color:
+  --text-color:
+}
+
+/* Popup styling */
+.popup {
+  position: absolute;
+  background:  var(--bg-color);
+  padding: 20px;
+  border: none;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+  width: 600px;
+  max-height: 250px;
+  overflow-y: auto;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  color: var(--text-color);
+  line-height: 1.5em;
+  border-radius: 10px;
+  padding-right: 20px;
+  cursor: cursor; /* Add cursor style for dragging */
+}
+
+.popup::-webkit-scrollbar {
+  width: 12px;
+  background-color: linear-gradient(to bottom, #f3f3f3, var(--bg-color));
+  border-radius: 20px; 
+  position: relative; 
+  right: 0; 
+  }
+  
+  .popup::-webkit-scrollbar-thumb {
+  background-color: #c7c5c5;
+  border-radius: 20px; /* match the border-radius of the popup */
+  border: none;
+  }
+  
+  .popup::-webkit-scrollbar-thumb:hover {
+  background-color: #999494;
+  }
+  
+  .popup::-webkit-scrollbar-thumb:active {
+  background-color: #999494;
+  }
+
+/* Placeholder styling for image */
+.popup-img {
+  float: left;
+  margin-right: 10px;
+  width: 170px;
+  height: 170px;
+  background-image: url(https://theperfectroundgolf.com/wp-content/uploads/2022/04/placeholder.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+/* Placeholder styling for image */
+.created-img {
+  float: left;
+  margin-right: 10px;
+  width: 170px;
+  height: 170px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+
+
+/* Spinner animation */
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #7983ff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {transform: rotate(360deg);}
+}
+
+/* Close button styling */ 
+.popup .closeButton {
+  position: absolute;
+  top: 10px;
+  right: 25px; /* Increase the right value by 35 to create space for the close button */
+  width: 25px;
+  height: 25px;
+  border: none;
+  background: none;
+  color: #444;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  }
+  
+  .popup .closeButton:hover {
+  color: #7983ff;
+  }
+  
+  .popup .closeButton:focus {
+  box-shadow: 0px 0px 0px 2px #7983ff;
+  }
+
+.popup .imageButton {
+  position: absolute;
+  top: 10px;
+  right: 60px; /* Position the image button to the right of the close button */
+  width: 25px;
+  height: 25px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  }
+
+
+  .imageButton img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .popup .playButton {
+    position: absolute;
+    top: 10px;
+    right: 95px; /* Increase the right value to create space for the play button */
+    width: 25px;
+    height: 25px;
+    border: none;
+    background: none;
+    color: #444;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+  }
+  
+  .popup .playButton:hover {
+    color: #7983ff;
+  }
+  
+  .popup .playButton:focus {
+    box-shadow: none;
+    outline: none; /* Add this line to remove the outline */
+  }
+  
+  /*styling for the move cursor*/
+.popup .popupMover {
+  position: absolute;
+  top: 10px;
+  right: 130px; /* Increase the right value to create space for the popup mover */
+  width: 25px;
+  height: 25px;
+  border: none;
+  background: none;
+  color: #444;
+  font-size: 18px;
+  cursor: move;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+}
+
+  .popup .linkButton {
+    position: absolute;
+    top: 10px;
+    right: 165px; /* Increase the right value to create space for the link button */
+    width: 25px;
+    height: 25px;
+    border: none;
+    background: none;
+    color: #444;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+  }
+  
+
+
+/* Placeholder styling for word */
+.popup-word {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Placeholder styling for synonym */
+.popup-synonym {
+  margin-top: 10px;
+  font-size: 16px;
+  font-style: italic;
+}
+
+.popup-synonym .bold-text {
+  font-weight: bold;
+}
+
+/* Placeholder styling for antonym */
+.popup-antonym {
+  margin-top: 10px;
+  font-size: 16px;
+  font-style: italic;
+}
+
+.popup-antonym .bold-text {
+  font-weight: bold;
+}
+
+/* Placeholder styling for definition */
+.popup-definition {
+  margin-top: 10px;
+  padding-top: 25px;
+  font-size: 16px;
+  font-style: italic;
+}
+
+.popup-definition .bold-text {
+  font-weight: bold;
+}
+
+
+/* Placeholder styling for example sentence */
+.popup-example {
+  margin-top: 10px;
+  font-size: 16px;
+  font-style: italic;
+}
+
+.popup-example .bold-text {
+  font-weight: bold;
+}
+
+/* Placeholder styling for homonym */
+.popup-homonym {
+  margin-top: 10px;
+  font-size: 16px;
+  font-style: italic;
+}
+
+.popup-homonym .bold-text {
+  font-weight: bold;
+}
+
+/* Placeholder styling for translation*/
+.popup-translation {
+  margin-top: 10px;
+  font-size: 16px;
+  font-style: italic;
+}
+
+.popup-translation .bold-text {
+  font-weight: bold;
+}
