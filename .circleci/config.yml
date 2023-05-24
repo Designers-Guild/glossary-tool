@@ -7,6 +7,10 @@ jobs:
     steps:
       - checkout
       - run: npm install
+       # Print dependencies
+      - run:
+          name: Print Dependencies
+          command: npm ls
       - run: npm run test
 
 
