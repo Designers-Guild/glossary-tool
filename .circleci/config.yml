@@ -1,18 +1,18 @@
 version: 2.1
+
+executors:
+  node-19.6.0:
+    docker:
+      - image: circleci/node:19.6.0
+
 jobs:
   build:
-    docker:
-      - image: circleci/node:16
+    executor: node-19.6.0
     working_directory: ~/app
     steps:
       - checkout
       - run: npm install
-       # Print dependencies
       - run:
           name: Print Dependencies
           command: npm ls
       - run: npm run test
-      
-
-
-      
