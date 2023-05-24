@@ -3,6 +3,8 @@
 package-lock.json
 package.json
 
+# production
+/build
 
 # misc
 .DS_Store
