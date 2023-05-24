@@ -31,15 +31,37 @@ const { requestSynonym,requestTranslation ,requestAntonym,requestDefinition,requ
       }
     });
   }
+
+  var language;
+// Read the language from storage and store it in the global variable
+chrome.storage.sync.get(['language'], function(items) {
+  language = items.language;
+  if (typeof language === "undefined") {
+  // Default language is Afrikaans
+  chrome.storage.sync.set({'language': 'Afrikaans'}, function() {
+  language = 'Afrikaans';
+  });
+  }
+  else {
+  }
+  });
+  
+  
+  // Listen for changes to the "language" key
+  chrome.storage.onChanged.addListener(function(changes, areaName) {
+  if (areaName === 'sync' && changes.language) {
+  language = changes.language.newValue;
+  }
+  });
+  
 //Set prevPop to null, initially when theres no popups on page
 let prevPopup=null; 
 
 let imageCreated = false;
 
 // Event listener for double click on a word and creates the popup
-// Event listener for double click on a word and creates the popup
+
 document.addEventListener("dblclick", async (event) => {
-  // Use the selected language in your script
   // Remove the previous popup if we find one is already open
   if (prevPopup) {
     prevPopup.remove();
@@ -161,7 +183,7 @@ prevPopup = popup;
           requestDefinition(clickedWord,contextString),
           requestExampleSentence(clickedWord,contextString),
           requestHomonym(clickedWord),
-          requestTranslation(clickedWord),
+          requestTranslation(clickedWord,language),
           createImage(clickedWord)
         ]);
         

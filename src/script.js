@@ -2,33 +2,7 @@ apiKey = "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";
 
 
 
-var language;
-if (typeof jest === "undefined") { // exclude this block when running Jest tests
-  
 
-// Read the language from storage and store it in the global variable
-chrome.storage.sync.get(['language'], function(items) {
-language = items.language;
-if (typeof language === "undefined") {
-// Default language is Afrikaans
-chrome.storage.sync.set({'language': 'Afrikaans'}, function() {
-language = 'Afrikaans';
-});
-}
-else {
-}
-});
-
-
-// Listen for changes to the "language" key
-chrome.storage.onChanged.addListener(function(changes, areaName) {
-if (areaName === 'sync' && changes.language) {
-language = changes.language.newValue;
-}
-});
-
-
-}
 
 // Function connects to OpenAI API and returns a synonym for the word passed in
 async function requestSynonym(word,context) {
@@ -57,7 +31,7 @@ const requestOptions = {
   
 }
 // Function connects to OpenAI API and returns a Translation for the word passed in
-async function requestTranslation(word) {
+async function requestTranslation(word, language) {
   const requestOptions = {
     method: "POST",
     headers: {
