@@ -6,7 +6,7 @@
 /* Popup styling */
 .popup {
   position: absolute;
-  background: linear-gradient(to bottom, #f3f3f3, var(--bg-color));
+  background:  var(--bg-color);
   padding: 20px;
   border: none;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
