@@ -3,8 +3,10 @@ const { requestSynonym, requestTranslation, requestAntonym, requestDefinition, r
 describe("requestSynonym function", () => {
   test("should return a synonym for the provided word", async () => {
     const word = "happy";
-    const synonym = await requestSynonym(word);
-    expect(synonym).not.toBe("");
+    const context = "I'm glad to see you looking so happy today."
+    const synonyms = ["Joyful.", "Delighted.", "Pleased.", "Content."];
+    const synonym = await requestSynonym(word,context);
+    expect(synonyms.includes(synonym)).toBe(true);
   }, 50000); // set the timeout to 50000
 });
 
