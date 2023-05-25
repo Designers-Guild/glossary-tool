@@ -1,4 +1,4 @@
-const { requestSynonym, requestTranslation, requestAntonym, requestDefinition, requestExampleSentence, requestHomonym, createImage, GetWikiLink } = require("./src/script");
+const { requestSynonym, requestTranslation, requestAntonym, requestDefinition, requestExampleSentence, requestHomonym, createImage, GetWikiLink, requestPhrase } = require("./src/script");
 
 
 describe("requestSynonym function", () => {
@@ -104,7 +104,16 @@ describe('requestExampleSentence', () => {
   }, 50000); // set the timeout to 50000
 });
 
-
+describe('requestPhrase', () => {
+  test('should return a video url for the word passed in', async () => {
+    const word = 'Donkey';
+    const context = 'Donkey is an animal'
+    const videoUrl = await requestPhrase(word,context);
+    
+    expect(typeof videoUrl).toBe('string'); // check that the image URL is a string
+    expect(videoUrl.length).toBeGreaterThan(0); // check that the image URL is not an empty string
+  }, 50000); // set the timeout to 50000
+});
 
 describe('createImage', () => {
   test('should return a URL for an image generated based on the word passed in', async () => {
