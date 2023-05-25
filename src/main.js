@@ -263,7 +263,7 @@ prevPopup = popup;
           let videoButton = document.createElement("button");
           videoButton.classList.add("videoButton");
           let icon2 = document.createElement("img");
-          icon2.src = "https://png.pngtree.com/element_our/png/20181213/video-vector-icon-png_267481.jpg";
+          icon2.src = 'https://cdn-icons-png.flaticon.com/512/3698/3698647.png';
 
           videoButton.appendChild(icon2);
           videoButton.addEventListener("click", async() => {
