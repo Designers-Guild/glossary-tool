@@ -26,7 +26,7 @@ const requestOptions = {
     const content = data.choices[0].message.content;
     return content;
   } catch (error) {
-    return "Please try again";
+    return "Please try again" + error;
   }
   
 }
