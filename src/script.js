@@ -1,5 +1,5 @@
 apiKey = "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";
-
+apiKeyp = 'JUt5mkVtvrMrDEBFw0NUPzmqIsbpoL35rasOV6M4PHMgUn7sdEWpDsiO';
 
 
 
@@ -198,9 +198,81 @@ function GetWikiLink(word) {
   return wikiLink
 }
 
-
+ // Function connects to OpenAI API and returns a 2phrase for the word passed in
+ async function requestPhrase(word,context) {
+  const requestOptions = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${apiKey}`,
+    },
+    body: JSON.stringify({
+      model: "gpt-3.5-turbo",
+      messages: [
+      { role: 'system', content: `Only provide one word. Please provide a common synonym for the word "${word}" that is relevant to the context of the passage "${context}". If the word doesnt require a synonym, use the word itself.` },
+      /* { role: 'system', content: `Please generate a phrase up to a maximum of 3 words (minimum 1 word phrase) to pass into pexels to get a picture of the word "${word}" in the context of "${context}". The phrase MUST contain the word "${word}".` }, */
+      ],
+    }),
+  };
   
-module.exports = { requestSynonym,requestTranslation,requestAntonym,requestDefinition,requestExampleSentence,requestHomonym, createImage,GetWikiLink};
+    try {
+      const response = await fetch("https://api.openai.com/v1/chat/completions", requestOptions);
+      const data = await response.json();
+      const content = data.choices[0].message.content;
+      console.log(content); //JUST WANNA SEE WHATS THE PHRASE
+      // Pass the generated word into the Pexels async function
+      const videoUrl = await getPexelsVideo(content);
+      // Display the video in the browser
+      return videoUrl;
+    } catch (error) {
+      return "Please try again";
+    }
+    
+  }
+
+    // Define the Pexels async function
+    async function getPexelsVideo(searchQuery) {
+      // Set the API endpoint and headers for the Pexels API
+      const pexelsUrl = 'https://api.pexels.com/videos/search';
+      const pexelsHeaders = new Headers({
+        'Authorization': apiKeyp,
+      });
+
+      // Set the parameters for the search query
+      const params = new URLSearchParams({
+        'query': searchQuery,
+        'per_page': 1,
+      });
+
+      // Construct the complete URL with query parameters
+      const requestUrl = `${pexelsUrl}?${params.toString()}`;
+
+      try {
+        // Make the Pexels API request
+        const response = await fetch(requestUrl, { headers: pexelsHeaders });
+        const data = await response.json();
+
+        // Handle the Pexels API response
+        const videos = data.videos;
+        if (videos.length > 0) {
+          // Access the video URL
+          const videoUrl = videos[0].video_files[0].link;
+          console.log('Video URL:', videoUrl);
+          return videoUrl; // Return the video URL
+        } else {
+          console.log('No videos found for the search query.');
+          return null; // Return null if no videos found
+        }
+      } catch (error) {
+        // Handle any errors
+        console.error('Error:', error);
+        return null; // Return null in case of error
+      }
+    }
+
+
+
+module.exports = { requestSynonym,requestTranslation,requestAntonym,requestDefinition,requestExampleSentence,requestHomonym, createImage,GetWikiLink, requestPhrase};
 
 
 

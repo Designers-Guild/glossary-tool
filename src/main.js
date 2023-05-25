@@ -1,4 +1,4 @@
-const { requestSynonym,requestTranslation ,requestAntonym,requestDefinition,requestExampleSentence,requestHomonym, createImage, GetWikiLink} = require('./script.js');
+const { requestSynonym,requestTranslation ,requestAntonym,requestDefinition,requestExampleSentence,requestHomonym, createImage, GetWikiLink, requestPhrase} = require('./script.js');
 
   //button to click to play audio// sends to assembly api
   function createPlayButton(word) {
@@ -58,6 +58,8 @@ chrome.storage.sync.get(['language'], function(items) {
 let prevPopup=null; 
 
 let imageCreated = false;
+let videoCreated = false;
+
 
 // Event listener for double click on a word and creates the popup
 
@@ -177,14 +179,15 @@ prevPopup = popup;
          content.appendChild(bb);
 
          //CHATGPT Requests
-         const [synonym, antonym, definition, ExampleSentence, Homonym, Translation, Image ] = await Promise.all([
+         const [synonym, antonym, definition, ExampleSentence, Homonym, Translation, Image, Video ] = await Promise.all([
           requestSynonym(clickedWord,contextString),
           requestAntonym(clickedWord,contextString),
           requestDefinition(clickedWord,contextString),
           requestExampleSentence(clickedWord,contextString),
           requestHomonym(clickedWord),
           requestTranslation(clickedWord,language),
-          createImage(clickedWord)
+          createImage(clickedWord),
+          requestPhrase(clickedWord)
         ]);
         
         let word = document.createElement("div");
@@ -224,44 +227,71 @@ prevPopup = popup;
           examplesentence.classList.add("popup-example");
           content.appendChild(examplesentence);
           
+          const image = document.createElement('div');
+          image.classList.add('popup-img');
+          popup.insertBefore(image, popup.firstChild);
 
+          let vid; //make them global to use in below click requests
+          let img;
 
-              const image = document.createElement('div'); // create a new div element
-              image.classList.add('popup-img'); // add the popup-img class to the div
-              popup.insertBefore(image, popup.firstChild);
-
-
-         // Add an image button to the popup
-         //the image button appears once the request is successful
           let imageButton = document.createElement("button");
-          imageButton.classList.add("imageButton"); // add the "imageButton" class to the button
+          imageButton.classList.add("imageButton");
           let icon = document.createElement("img");
           icon.src = "https://cdn-icons-png.flaticon.com/512/223/223117.png";
           imageButton.appendChild(icon);
           imageButton.addEventListener("click", async() => {
-            let img;
             if (!imageCreated) {
               img = document.createElement("img"); 
               img.src = Image; 
               img.classList.add("created-img");
-              popup.removeChild(image);
+              if(videoCreated){ //line 226 to 231 ---> if theres a video, replace video element otherwise replace image placeholder
+                popup.removeChild(vid);
+              }
+              else{
+                popup.removeChild(image);
+              }
               popup.insertBefore(img, popup.firstChild);
               imageCreated = true;
+              videoCreated = false; //when clicking image, set video to false, indicating no video created so we can click to see a video ( ie the video function can be rerun)
             } else {
               img = content.querySelector("img");
             }
           });
           popup.appendChild(imageButton);
-          /* 
-          If we remove this line, the imageCreated variable will retain its true value even after it has been set once. 
-          As a result, we will not be able to generate images for 
-          different words within the same window without reloading the window/browser.
-          */
-          imageCreated=false; //reset image created to false,so --> no image created for next usage
+          imageCreated = false; // allows so that we can reclick image button to see image all, in the same browser state ( ie before refreshing), if we close the popup adn reopen it again for aniother request
+
+          let videoButton = document.createElement("button");
+          videoButton.classList.add("videoButton");
+          let icon2 = document.createElement("img");
+          icon2.src = "https://png.pngtree.com/element_our/png/20181213/video-vector-icon-png_267481.jpg";
+
+          videoButton.appendChild(icon2);
+          videoButton.addEventListener("click", async() => {
+            if (!videoCreated) {
+              vid = document.createElement("video");
+              vid.src = Video;
+              vid.controls = true; //allow to see video controls like pause, 3 line button etc.
+              vid.autoplay = true; //autoplays video upon clicking
+              vid.classList.add("created-vid");
+              if(imageCreated){  //line 255 - 261 ---> if theres a image, replace image element otherwise replace image placeholder
+                popup.removeChild(img);
+                
+              }
+              else{
+                popup.removeChild(image);
+              }
+              popup.insertBefore(vid, popup.firstChild); // Insert the video before the image container
+              videoCreated = true;
+              imageCreated = false; //when clicking on video, set image to falase so we can click image again
+            } else {
+              vid = content.querySelector("video");
+            }
+          });
+          popup.appendChild(videoButton);
+          videoCreated = false; // allows so that we can reclick video button to see video, in the same browser state ( ie before refreshing), if we close the popup adn reopen it again for aniother request
           
           //LINK Request
          //Creating More info link inside popup
-
          var linkButton = document.createElement("a");
          linkButton.textContent = "🔗";
          linkButton.classList.add("linkButton");

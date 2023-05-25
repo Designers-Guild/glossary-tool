@@ -67,6 +67,17 @@
   background-size: cover;
 }
 
+/* styling for video, size, position etc */
+.created-vid {
+  float: left;
+  margin-right: 10px;
+  width: 170px;
+  height: 170px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
 
 
 /* Spinner animation */
@@ -132,10 +143,33 @@
     height: 20px;
   }
 
+  .popup .videoButton {
+    position: absolute;
+    top: 10px;
+    right: 95px; /* Position the image button to the right of the close button */
+    width: 25px;
+    height: 25px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    }
+  
+  
+    .videoButton img {
+      width: 20px;
+      height: 20px;
+    }
+
+
   .popup .playButton {
     position: absolute;
     top: 10px;
-    right: 95px; /* Increase the right value to create space for the play button */
+    right: 130px; /* Increase the right value to create space for the play button */
     width: 25px;
     height: 25px;
     border: none;
@@ -149,6 +183,7 @@
     align-items: center;
     outline: none;
   }
+
   
   .popup .playButton:hover {
     color: #7983ff;
@@ -163,7 +198,7 @@
 .popup .popupMover {
   position: absolute;
   top: 10px;
-  right: 130px; /* Increase the right value to create space for the popup mover */
+  right: 200px; /* Increase the right value to create space for the popup mover */
   width: 25px;
   height: 25px;
   border: none;
