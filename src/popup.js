@@ -41,5 +41,10 @@ document.addEventListener("DOMContentLoaded", function() {
       window.close(); // Close the popup window
       
     });
+
+
+  document.getElementById('how-to-use-button').addEventListener('click', function() {
+    window.open('test.pdf', '_blank');
+});
   });
   

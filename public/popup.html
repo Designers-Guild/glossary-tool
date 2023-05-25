@@ -6,9 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
   <style>
-    /* Main container style */
-    body {
+ /* Main container style */
+ body {
+      height:460px;
+      width:175px;
       background-color: #1d1d1d;
+      margin: 5px;
       display: flex;
       align-items: center;
       font-family: 'Roboto', sans-serif;
@@ -29,7 +32,7 @@
     .dropdown {
       font-size: 1rem;
       padding: 0.5rem;
-      border-radius: 5px;
+      border-radius: 10px;
       border: none;
       margin-right: 1rem;
       color: #333;
@@ -54,6 +57,28 @@
     #save-button:hover {
       background-color: #3e8e41;
     }
+
+/* How to use button style */
+#how-to-use-button {
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 31px;
+  cursor: pointer;
+  background-color: #FF9800;
+  border-radius: 70%;
+
+}
+
+/* Hover effect on the how to use button */
+#how-to-use-button:hover {
+  background-color: #FF8800;
+}
+
   </style>
   <script src="popup.js"></script>
 </head>
@@ -87,8 +112,12 @@
         <option value="#00FFFF">Cyan</option>
         <option value="#FFA500">Orange</option>
       </select>
+
     </div>
     <button id="save-button">Save</button>
+    <button id="how-to-use-button">Info</button>
   </div>
+
 </body>
 </html>
+
