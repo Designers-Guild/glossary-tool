@@ -25,12 +25,19 @@ describe("requestSynonym function", () => {
 
 describe('requestTranslation', () => {
   test('should return a translation for the word passed in', async () => {
-    const word = 'happy';
-    const translation = await requestTranslation(word);
+    const word = 'it';
+    const language = 'Afrikaans';
+    const translation = await requestTranslation(word,language);
 
-    expect(typeof translation).toBe('string'); // check that the translation is a string
-    expect(translation).not.toBe('happy'); // check that the translation is not the same as the original word
-    expect(translation.length).toBeGreaterThan(0); // check that the translation is not an empty string
+
+    const normalizedTranslation = translation.toLowerCase().replace(/[.,]/g, '');
+
+    console.log('Translation Response:', normalizedTranslation);
+
+    expect(typeof normalizedTranslation).toBe('string'); // check that the translation is a string
+    expect(normalizedTranslation).not.toBe('it'); // check that the translation is not the same as the original word
+    expect(normalizedTranslation.length).toBeGreaterThan(0); // check that the translation is not an empty string
+    expect(normalizedTranslation).toBe('dit')
   }, 50000); // set the timeout to 50000
 
 });
@@ -103,7 +110,7 @@ describe('createImage', () => {
   test('should return a URL for an image generated based on the word passed in', async () => {
     const word = 'cat';
     const imageUrl = await createImage(word);
-
+    
     expect(typeof imageUrl).toBe('string'); // check that the image URL is a string
     expect(imageUrl.length).toBeGreaterThan(0); // check that the image URL is not an empty string
   }, 100000); // set the timeout to 50000

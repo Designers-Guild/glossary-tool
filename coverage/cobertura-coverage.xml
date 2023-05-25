@@ -1,13 +1,13 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="54" lines-covered="47" line-rate="0.8703" branches-valid="0" branches-covered="0" branch-rate="1" timestamp="1685009935073" complexity="0" version="0.1">
+<coverage lines-valid="54" lines-covered="45" line-rate="0.8332999999999999" branches-valid="0" branches-covered="0" branch-rate="1" timestamp="1685015229771" complexity="0" version="0.1">
   <sources>
     <source>C:\Users\Salmaan\Desktop\Computer Science\COMS 3009 - Software Design\Project\glossary-tool</source>
   </sources>
   <packages>
-    <package name="main" line-rate="0.8703" branch-rate="1">
+    <package name="main" line-rate="0.8332999999999999" branch-rate="1">
       <classes>
-        <class name="script.js" filename="src\script.js" line-rate="0.8703" branch-rate="1">
+        <class name="script.js" filename="src\script.js" line-rate="0.8332999999999999" branch-rate="1">
           <methods>
             <method name="requestSynonym" hits="1" signature="()V">
               <lines>
@@ -62,10 +62,10 @@
             <line number="35" hits="1" branch="false"/>
             <line number="49" hits="1" branch="false"/>
             <line number="50" hits="1" branch="false"/>
-            <line number="51" hits="1" branch="false"/>
-            <line number="52" hits="1" branch="false"/>
-            <line number="53" hits="1" branch="false"/>
-            <line number="55" hits="0" branch="false"/>
+            <line number="51" hits="0" branch="false"/>
+            <line number="52" hits="0" branch="false"/>
+            <line number="53" hits="0" branch="false"/>
+            <line number="55" hits="1" branch="false"/>
             <line number="62" hits="1" branch="false"/>
             <line number="76" hits="1" branch="false"/>
             <line number="77" hits="1" branch="false"/>
