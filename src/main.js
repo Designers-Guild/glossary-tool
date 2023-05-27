@@ -259,6 +259,48 @@ prevPopup = popup;
           });
           popup.appendChild(imageButton);
           imageCreated = false; // allows so that we can reclick image button to see image all, in the same browser state ( ie before refreshing), if we close the popup adn reopen it again for aniother request
+          
+          //Refresh image button logic 
+          let refreshButton = document.createElement("button");
+          refreshButton.classList.add("refreshButton");
+          let iconRefresh = document.createElement("img");
+          iconRefresh.src = "https://cdn-icons-png.flaticon.com/512/159/159612.png";
+          refreshButton.appendChild(iconRefresh);
+
+          refreshButton.addEventListener("click",async() =>{
+            //only refresh if an image exists and video does not exist
+            if(imageCreated && !videoCreated)
+            {
+              imageCreated = false;
+              //TO spin the icon 
+              refreshButton.classList.add("refreshspin");
+
+              const newImage = await createImage(clickedWord);
+                //We have to remove the existing img and then create new img element       
+                if (img && img.parentNode) {
+                  img.parentNode.removeChild(img);
+                }
+                // Create a new img element and set its attributes
+                img = document.createElement("img");
+                img.src = newImage;
+                img.classList.add("created-img");
+
+              // Wait for the new image to load
+              await new Promise((resolve, reject) => {
+              img.onload = resolve;
+              img.onerror = reject;
+              });
+
+              //Remove spinner when image loaded
+              refreshButton.classList.remove("refreshspin");
+                // Insert the new img element at the appropriate position
+                popup.insertBefore(img, popup.firstChild);
+                imageCreated = true;
+                videoCreated = false; //when clicking image, set video to false, indicating no video created so we can click to see a video ( ie the video function can be rerun)
+            }
+          });
+          popup.appendChild(refreshButton);
+          imageCreated = false;
 
           let videoButton = document.createElement("button");
           videoButton.classList.add("videoButton");

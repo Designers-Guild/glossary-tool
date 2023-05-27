@@ -165,7 +165,39 @@
       height: 20px;
     }
 
+    .popup .refreshButton {
+      position: absolute;
+      top: 10px;
+      right: 235px; /* Position the image button to the right of the close button */
+      width: 25px;
+      height: 25px;
+      border: none;
+      background: none;
+      cursor: pointer;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      outline: none;
+      }
+    
+    
+      .refreshButton img {
+        width: 20px;
+        height: 20px;
+      }
 
+    .refreshspin{
+      animation: spin 1s infinite linear;
+    }
+    @keyframes refreshspin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
   .popup .playButton {
     position: absolute;
     top: 10px;
