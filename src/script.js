@@ -138,7 +138,7 @@ const requestOptions = {
   
 }
 
-// Function connects to OpenAI API and returns a Homonym  for the word passed in
+// Function connects to OpenAI API and returns a homonym  for the word passed in
 async function requestHomonym(word) {
   const requestOptions = {
     method: "POST",
@@ -164,6 +164,35 @@ async function requestHomonym(word) {
     }
     
   }
+
+  // Function connects to OpenAI API and returns an abbreviation for the word passed in
+  async function requestAbbreviation(word) {
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        model: "gpt-3.5-turbo",
+        messages: [{role: "system", content: "From now on, I only want single word answers."},
+         {role: "system", content: "You are the oxford dictionary."}
+        ,{role: "user", content:`Provide me with an abbreviation of "${word}". If there is no valid abbreviation provide me a common texting abbreviation`}],
+      }),
+    };
+    
+      try {
+        const response = await fetch("https://api.openai.com/v1/chat/completions", requestOptions);
+        const data = await response.json();
+        const content = data.choices[0].message.content;
+        return content;
+      } catch (error) {
+        return "Please try again";
+      }
+      
+    }
+
+
 
   async function createImage(word) {
     const requestOptions = {
@@ -272,7 +301,7 @@ function GetWikiLink(word) {
 
 
 
-module.exports = { requestSynonym,requestTranslation,requestAntonym,requestDefinition,requestExampleSentence,requestHomonym, createImage,GetWikiLink, requestPhrase};
+module.exports = { requestSynonym,requestTranslation,requestAntonym,requestDefinition,requestExampleSentence,requestHomonym, createImage,GetWikiLink, requestPhrase,requestAbbreviation};
 
 
 

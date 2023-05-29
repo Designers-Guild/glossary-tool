@@ -297,7 +297,6 @@
 /* Placeholder styling for definition */
 .popup-definition {
   margin-top: 10px;
-  padding-top: 25px;
   font-size: 16px;
   font-style: italic;
 }
@@ -337,5 +336,15 @@
 }
 
 .popup-translation .bold-text {
+  font-weight: bold;
+}
+
+.popup-abbreviation {
+  margin-top: 10px;
+  font-size: 16px;
+  font-style: italic;
+}
+
+.popup-abbreviation .bold-text {
   font-weight: bold;
 }

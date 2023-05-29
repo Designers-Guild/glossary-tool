@@ -1,4 +1,4 @@
-const { requestSynonym,requestTranslation ,requestAntonym,requestDefinition,requestExampleSentence,requestHomonym, createImage, GetWikiLink, requestPhrase} = require('./script.js');
+const { requestSynonym,requestTranslation ,requestAntonym,requestDefinition,requestExampleSentence,requestHomonym, createImage, GetWikiLink, requestPhrase, requestAbbreviation} = require('./script.js');
 
   //button to click to play audio// sends to assembly api
   function createPlayButton(word) {
@@ -179,7 +179,7 @@ prevPopup = popup;
          content.appendChild(bb);
 
          //CHATGPT Requests
-         const [synonym, antonym, definition, ExampleSentence, Homonym, Translation, Image, Video ] = await Promise.all([
+         const [synonym, antonym, definition, ExampleSentence, Homonym, Translation, Image, Video, abbreviation ] = await Promise.all([
           requestSynonym(clickedWord,contextString),
           requestAntonym(clickedWord,contextString),
           requestDefinition(clickedWord,contextString),
@@ -187,7 +187,8 @@ prevPopup = popup;
           requestHomonym(clickedWord),
           requestTranslation(clickedWord,language),
           createImage(clickedWord),
-          requestPhrase(clickedWord)
+          requestPhrase(clickedWord),
+          requestAbbreviation(clickedWord),
         ]);
         
         let word = document.createElement("div");
@@ -210,6 +211,11 @@ prevPopup = popup;
          homonym.innerHTML = `<span class="bold-text">Homonym:</span> ${Homonym}`;
          homonym.classList.add("popup-homonym");
          content.appendChild(homonym);
+
+         let Abbreviation = document.createElement("div");
+         Abbreviation.innerHTML = `<span class="bold-text">Abbreviation:</span> ${abbreviation}`;
+         Abbreviation.classList.add("popup-abbreviation");
+         content.appendChild(Abbreviation);
 
          let translation = document.createElement("div");
          translation.innerHTML = `<span class="bold-text">Translation:</span> ${Translation}`;
