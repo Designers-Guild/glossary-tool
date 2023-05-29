@@ -238,7 +238,7 @@ function GetWikiLink(word) {
     body: JSON.stringify({
       model: "gpt-3.5-turbo",
       messages: [
-      { role: 'system', content: `Only provide one word. Please provide a common synonym for the word "${word}" that is relevant to the context of the passage "${context}". If the word doesnt require a synonym, use the word itself.` },
+      { role: 'system', content: `Only provide a 2 word phrase. Please provide a phrase that uses the word"${word}" that is relevant to the context of the passage "${context}".` },
       /* { role: 'system', content: `Please generate a phrase up to a maximum of 3 words (minimum 1 word phrase) to pass into pexels to get a picture of the word "${word}" in the context of "${context}". The phrase MUST contain the word "${word}".` }, */
       ],
     }),

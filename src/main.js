@@ -71,17 +71,23 @@ document.addEventListener("dblclick", async (event) => {
 
   // Get the word that was clicked
   let clickedWord = window.getSelection().toString().trim();
-  console.log(clickedWord);
+  console.log("Clicked Word: " + clickedWord);
 
-    // Get the text content of the clicked element
+  // Get the text content of the clicked element
   let clickedElement = event.target;
   let textContent = clickedElement.textContent;
 
-  // Split the text into an array of words
-  let words = textContent.split(" ");
+  // Remove punctuation from the textContent
+  let cleanedText = textContent.replace(/[^\w\s]/g, ''); // Removes all punctuation marks
+  //console.log("Cleaned Text: " + cleanedText);
 
-  // Find the index of the clicked word
-  let index = words.indexOf(clickedWord);
+  // Split the cleaned text into an array of words, converting to lowercase
+  let words = cleanedText.toLowerCase().split(" ");
+  //console.log("Words: ", words);
+
+  // Find the index of the clicked word, converting to lowercase
+  let index = words.indexOf(clickedWord.toLowerCase());
+  //console.log("Index of Word: " + index);
 
   // Extract the 10 words before and after the clicked word
   let start = Math.max(0, index - 20);
@@ -187,7 +193,7 @@ prevPopup = popup;
           requestHomonym(clickedWord),
           requestTranslation(clickedWord,language),
           createImage(clickedWord),
-          requestPhrase(clickedWord),
+          requestPhrase(clickedWord,contextString),
           requestAbbreviation(clickedWord),
         ]);
         
