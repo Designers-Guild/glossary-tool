@@ -1,13 +1,13 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="80" lines-covered="68" line-rate="0.85" branches-valid="2" branches-covered="1" branch-rate="0.5" timestamp="1685019470567" complexity="0" version="0.1">
+<coverage lines-valid="87" lines-covered="74" line-rate="0.8504999999999999" branches-valid="2" branches-covered="1" branch-rate="0.5" timestamp="1685438810772" complexity="0" version="0.1">
   <sources>
     <source>C:\Users\Salmaan\Desktop\Computer Science\COMS 3009 - Software Design\Project\glossary-tool</source>
   </sources>
   <packages>
-    <package name="main" line-rate="0.85" branch-rate="0.5">
+    <package name="main" line-rate="0.8504999999999999" branch-rate="0.5">
       <classes>
-        <class name="script.js" filename="src\script.js" line-rate="0.85" branch-rate="0.5">
+        <class name="script.js" filename="src\script.js" line-rate="0.8504999999999999" branch-rate="0.5">
           <methods>
             <method name="requestSynonym" hits="1" signature="()V">
               <lines>
@@ -39,24 +39,29 @@
                 <line number="142" hits="1"/>
               </lines>
             </method>
+            <method name="requestAbbreviation" hits="1" signature="()V">
+              <lines>
+                <line number="169" hits="1"/>
+              </lines>
+            </method>
             <method name="createImage" hits="1" signature="()V">
               <lines>
-                <line number="168" hits="1"/>
+                <line number="197" hits="1"/>
               </lines>
             </method>
             <method name="GetWikiLink" hits="1" signature="()V">
               <lines>
-                <line number="195" hits="1"/>
+                <line number="224" hits="1"/>
               </lines>
             </method>
             <method name="requestPhrase" hits="1" signature="()V">
               <lines>
-                <line number="202" hits="1"/>
+                <line number="231" hits="1"/>
               </lines>
             </method>
             <method name="getPexelsVideo" hits="1" signature="()V">
               <lines>
-                <line number="234" hits="1"/>
+                <line number="263" hits="1"/>
               </lines>
             </method>
           </methods>
@@ -105,42 +110,49 @@
             <line number="160" hits="1" branch="false"/>
             <line number="161" hits="1" branch="false"/>
             <line number="163" hits="0" branch="false"/>
-            <line number="169" hits="1" branch="false"/>
-            <line number="183" hits="1" branch="false"/>
+            <line number="170" hits="1" branch="false"/>
             <line number="184" hits="1" branch="false"/>
             <line number="185" hits="1" branch="false"/>
             <line number="186" hits="1" branch="false"/>
             <line number="187" hits="1" branch="false"/>
-            <line number="189" hits="0" branch="false"/>
-            <line number="196" hits="1" branch="false"/>
-            <line number="197" hits="1" branch="false"/>
+            <line number="188" hits="1" branch="false"/>
+            <line number="190" hits="0" branch="false"/>
             <line number="198" hits="1" branch="false"/>
-            <line number="203" hits="1" branch="false"/>
-            <line number="218" hits="1" branch="false"/>
-            <line number="219" hits="1" branch="false"/>
-            <line number="220" hits="1" branch="false"/>
-            <line number="221" hits="1" branch="false"/>
-            <line number="222" hits="1" branch="false"/>
-            <line number="224" hits="1" branch="false"/>
+            <line number="212" hits="1" branch="false"/>
+            <line number="213" hits="1" branch="false"/>
+            <line number="214" hits="1" branch="false"/>
+            <line number="215" hits="1" branch="false"/>
+            <line number="216" hits="1" branch="false"/>
+            <line number="218" hits="0" branch="false"/>
+            <line number="225" hits="1" branch="false"/>
             <line number="226" hits="1" branch="false"/>
-            <line number="228" hits="0" branch="false"/>
-            <line number="236" hits="1" branch="false"/>
-            <line number="237" hits="1" branch="false"/>
-            <line number="242" hits="1" branch="false"/>
+            <line number="227" hits="1" branch="false"/>
+            <line number="232" hits="1" branch="false"/>
+            <line number="247" hits="1" branch="false"/>
             <line number="248" hits="1" branch="false"/>
+            <line number="249" hits="1" branch="false"/>
             <line number="250" hits="1" branch="false"/>
-            <line number="252" hits="1" branch="false"/>
+            <line number="251" hits="1" branch="false"/>
             <line number="253" hits="1" branch="false"/>
-            <line number="256" hits="1" branch="false"/>
-            <line number="257" hits="1" branch="true" condition-coverage="50% (1/2)"/>
-            <line number="259" hits="1" branch="false"/>
-            <line number="260" hits="1" branch="false"/>
-            <line number="261" hits="1" branch="false"/>
-            <line number="263" hits="0" branch="false"/>
-            <line number="264" hits="0" branch="false"/>
-            <line number="268" hits="0" branch="false"/>
-            <line number="269" hits="0" branch="false"/>
-            <line number="275" hits="1" branch="false"/>
+            <line number="255" hits="1" branch="false"/>
+            <line number="257" hits="0" branch="false"/>
+            <line number="265" hits="1" branch="false"/>
+            <line number="266" hits="1" branch="false"/>
+            <line number="271" hits="1" branch="false"/>
+            <line number="277" hits="1" branch="false"/>
+            <line number="279" hits="1" branch="false"/>
+            <line number="281" hits="1" branch="false"/>
+            <line number="282" hits="1" branch="false"/>
+            <line number="285" hits="1" branch="false"/>
+            <line number="286" hits="1" branch="true" condition-coverage="50% (1/2)"/>
+            <line number="288" hits="1" branch="false"/>
+            <line number="289" hits="1" branch="false"/>
+            <line number="290" hits="1" branch="false"/>
+            <line number="292" hits="0" branch="false"/>
+            <line number="293" hits="0" branch="false"/>
+            <line number="297" hits="0" branch="false"/>
+            <line number="298" hits="0" branch="false"/>
+            <line number="304" hits="1" branch="false"/>
           </lines>
         </class>
       </classes>

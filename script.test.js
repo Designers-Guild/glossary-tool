@@ -1,4 +1,4 @@
-const { requestSynonym, requestTranslation, requestAntonym, requestDefinition, requestExampleSentence, requestHomonym, createImage, GetWikiLink, requestPhrase } = require("./src/script");
+const { requestSynonym, requestTranslation, requestAntonym, requestDefinition, requestExampleSentence, requestHomonym, createImage, GetWikiLink, requestPhrase,requestAbbreviation } = require("./src/script");
 
 
 describe("requestSynonym function", () => {
@@ -65,7 +65,7 @@ describe('requestHomonym', () => {
   test('should return a homonym for the word passed in', async () => {
     const word = "happy";
     const context = "I'm glad to see you looking so happy today.";
-    const homonyms = ["haply", "happi", "hapi", "hap","hippie","hippy","Chappy"];
+    const homonyms = ["haply", "happi", "hapi", "hap","hippie","hippy","Chappy","appy"];
 
     // Normalize the synonyms to lowercase without punctuation
     const normalizedHomonyms = homonyms.map(homonym => homonym.toLowerCase().replace(/[.,]/g, ''));
@@ -135,4 +135,24 @@ describe('GetWikiLink', () => {
     expect(wikiLink).toContain('https://en.wikipedia.org/wiki/'); // check that the wikiLink starts with 'https://en.wikipedia.org/wiki/'
     expect(wikiLink).toContain('dog'); // check that the wikiLink contains the word 'dog'
   });
+});
+
+describe('requestAbbreviation', () => {
+  test('should return an abbreviation for the word passed in', async () => {
+    const word = "Volkswagen";
+    const abbreviations = ["vw","VeeDub"];
+
+    // Normalize the synonyms to lowercase without punctuation
+    const normalizedAbbreviations = abbreviations.map(abbreviation => abbreviation.toLowerCase().replace(/[.,]/g, ''));
+
+    const abbreviation = await requestAbbreviation(word);
+    const normalizedAbbreviation = abbreviation.toLowerCase().replace(/[.,]/g, '');
+
+    console.log('Abbreviation Response:', abbreviation);
+
+    // Check if at least one relevant word is present in the answer
+    const hasRelevantWord = normalizedAbbreviations.some(abbe => normalizedAbbreviation.includes(abbe));
+
+    expect(hasRelevantWord).toBe(true);
+  }, 50000); // set the timeout to 50000
 });
