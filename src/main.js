@@ -173,7 +173,16 @@ document.addEventListener("dblclick", async (event) => {
 
 
 
-document.body.appendChild(popup);
+// Check if the div with class "App" exists
+let appDiv = document.querySelector("div#App");
+
+if (appDiv) {
+  // Add the popup to the "App" div
+  appDiv.appendChild(popup);
+} else {
+  // Add the popup to the body
+  document.body.appendChild(popup);
+}
 
 prevPopup = popup;
 
