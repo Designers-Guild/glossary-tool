@@ -94,7 +94,7 @@ The meeting was adjourned at 11:20. The next meeting will be scheduled for 19 Ma
 - Video calls were also setup to facilitate better communication and collaboration. With team members working in different locations, video calls provide a way to bring everyone together in a virtual space. This allows the team to discuss progress, share updates & identify any issues that need to be addressed in real-time. Additionally, video calls enable the team to build stronger relationships with each other, even if they are not physically in the same location. By using video calls in our daily scrums and other meetings, we are able to work more efficiently and effectively as a team.
 
 ### Proof of Daily Scrums
-![Proof of Daily Scrums](https://github.com/Designers-Guild/Designers-Guild---Glossary-Tool/blob/5c337817d87a2a02a2997dee606c8209daa81f14/Proof%20of%20Meetings/Sprint%203/Daily%20Scrums.png)
+![Proof of Daily Scrums](https://github.com/Designers-Guild/glossary-tool/blob/8a8af072684a1c3e592438db16780199076d2e95/Proof%20of%20Meetings/Sprint%204/Daily%20Scrums.png)
 
 ## Weekly Scrums (Product Owner + Dev Team)
 
