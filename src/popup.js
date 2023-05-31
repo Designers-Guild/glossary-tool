@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
   document.getElementById('how-to-use-button').addEventListener('click', function() {
-    window.open('test.pdf', '_blank');
+    window.open('Glossary Tool PDF.pdf', '_blank');
 });
   });
   
