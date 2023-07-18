@@ -62,15 +62,16 @@
 #how-to-use-button {
   border: none;
   color: white;
-  padding: 10px;
+  padding: 5px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 12px;
-  margin: 4px 31px;
+  margin:  35px;
   cursor: pointer;
   background-color: #FF9800;
-  border-radius: 70%;
+  border-radius: 50%;
+  width: 30px;
 
 }
 
@@ -115,7 +116,18 @@
 
     </div>
     <button id="save-button">Save</button>
-    <button id="how-to-use-button">Info</button>
+    <link href='https://fonts.googleapis.com/css?family=Dancing Script' rel='stylesheet'>
+    <button id="how-to-use-button"><span class="cursive larger">i</span></button>
+
+    <style>
+      .cursive {
+        font-family: Dancing Script;
+      }
+    
+      .larger {
+        font-size: 20px;
+      }
+    </style>
   </div>
 
 </body>
