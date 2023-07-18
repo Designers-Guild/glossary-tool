@@ -1,4 +1,4 @@
-apiKey = "sks-fiY6pQ1k1Hx08yL0NiOAT3BlbkFJ73gxuHYrzKKKWS4N3TpS";
+apiKey = "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";
 apiKeyp = 'JUt5mkVtvrMrDEBFw0NUPzmqIsbpoL35rasOV6M4PHMgUn7sdEWpDsiO';
 
 
