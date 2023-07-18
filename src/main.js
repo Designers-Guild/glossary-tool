@@ -135,15 +135,15 @@ console.log("Distance from word to right of the page:", wordRightDistance, "pixe
 
 if (wordTopDistance < 350) {
   // Adjust the position to appear below the word
-  popup.style.transform = "translate(0, 5%)"; // Adjust the translate value as needed
+  popup.style.transform = "translate(0, 10%)"; // Adjust the translate value as needed
 } else {
-  popup.style.transform = "translate(0, -105%)";
+  popup.style.transform = "translate(0, -110%)";
 }
 
-if (wordRightDistance < 630) {
+if (wordRightDistance < 635) {
   // Adjust the position to fit within the available space on the right
   console.log("right position", rightPosition);
-   rightPosition =  window.innerWidth-630 ;
+   rightPosition =  window.innerWidth-635 ;
    console.log("right position", rightPosition);
 }
 
