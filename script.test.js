@@ -65,7 +65,7 @@ describe('requestHomonym', () => {
   test('should return a homonym for the word passed in', async () => {
     const word = "happy";
     const context = "I'm glad to see you looking so happy today.";
-    const homonyms = ["haply", "happi", "hapi", "hap","hippie","hippy","Chappy","appy","Jubilant","merry"];
+    const homonyms = ["haply", "happi", "hapi", "hap","hippie","hippy","Chappy","appy"];
 
     // Normalize the synonyms to lowercase without punctuation
     const normalizedHomonyms = homonyms.map(homonym => homonym.toLowerCase().replace(/[.,]/g, ''));
