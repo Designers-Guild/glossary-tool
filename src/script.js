@@ -150,7 +150,7 @@ async function requestHomonym(word) {
       model: "gpt-3.5-turbo",
       messages: [{role: "system", content: "From now on, I only want single word answers."},
        {role: "system", content: "You are the oxford dictionary."}
-      ,{role: "user", content:`Provide me with the plural of "${word}".`}],
+      ,{role: "user", content:`Provide me with a word having a similar spelling or pronunciation as "${word}" but has a different meaning.`}],
     }),
   };
   
