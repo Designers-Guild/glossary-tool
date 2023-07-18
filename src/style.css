@@ -11,7 +11,7 @@
   border: none;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
   width: 600px;
-  max-height: 250px;
+  height: auto;
   overflow-y: auto;
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
@@ -21,6 +21,7 @@
   padding-right: 20px;
   cursor: cursor; /* Add cursor style for dragging */
   z-index: 9999; /* This z-index ensures the popup appears over all other elements and not underneath.  IT IS IMPORTANT THAT U DONT REMOVE THIS! Adjust the value as needed */
+
 }
 
 .popup::-webkit-scrollbar {
@@ -276,8 +277,8 @@
 /* Placeholder styling for synonym */
 .popup-synonym {
   margin-top: 10px;
-  font-size: 16px;
-  font-style: italic;
+  font-size: 10.5px;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 .popup-synonym .bold-text {
@@ -287,8 +288,8 @@
 /* Placeholder styling for antonym */
 .popup-antonym {
   margin-top: 10px;
-  font-size: 16px;
-  font-style: italic;
+  font-size: 10.5px;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 .popup-antonym .bold-text {
@@ -298,8 +299,8 @@
 /* Placeholder styling for definition */
 .popup-definition {
   margin-top: 10px;
-  font-size: 16px;
-  font-style: italic;
+  font-size: 10.5px;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 .popup-definition .bold-text {
@@ -310,8 +311,8 @@
 /* Placeholder styling for example sentence */
 .popup-example {
   margin-top: 10px;
-  font-size: 16px;
-  font-style: italic;
+  font-size: 10.5px;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 .popup-example .bold-text {
@@ -321,8 +322,8 @@
 /* Placeholder styling for homonym */
 .popup-homonym {
   margin-top: 10px;
-  font-size: 16px;
-  font-style: italic;
+  font-size: 10.5px;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 .popup-homonym .bold-text {
@@ -332,8 +333,8 @@
 /* Placeholder styling for translation*/
 .popup-translation {
   margin-top: 10px;
-  font-size: 16px;
-  font-style: italic;
+  font-size: 10.5px;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 .popup-translation .bold-text {
@@ -342,8 +343,8 @@
 
 .popup-abbreviation {
   margin-top: 10px;
-  font-size: 16px;
-  font-style: italic;
+  font-size: 10.5px;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 .popup-abbreviation .bold-text {

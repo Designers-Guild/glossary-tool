@@ -112,9 +112,47 @@ document.addEventListener("dblclick", async (event) => {
     // Add the spinner to the popup
     popup.appendChild(spinner);
 
-    // Set the popup position
-    popup.style.top = event.pageY + "px";
-    popup.style.left = event.pageX + "px";
+
+// Set the popup position
+
+let rightPosition = event.pageX ;
+let topPosition = event.pageY;
+
+// Calculate the distance between the double-clicked word and the top of the page
+let wordTopDistance = event.pageY - window.pageYOffset;
+
+let wordRightDistance = window.innerWidth - event.pageX;
+console.log("window.innerWidth", window.innerWidth);
+
+// Print the distance
+console.log("Distance from word to top of the page:", wordTopDistance, "pixels");
+
+console.log("Distance from word to right of the page:", wordRightDistance, "pixels");
+
+
+  console.log("right position", rightPosition);
+
+
+if (wordTopDistance < 350) {
+  // Adjust the position to appear below the word
+  popup.style.transform = "translate(0, 5%)"; // Adjust the translate value as needed
+} else {
+  popup.style.transform = "translate(0, -105%)";
+}
+
+if (wordRightDistance < 630) {
+  // Adjust the position to fit within the available space on the right
+  console.log("right position", rightPosition);
+   rightPosition =  window.innerWidth-630 ;
+   console.log("right position", rightPosition);
+}
+
+// Set the final top position of the popup
+popup.style.top = topPosition + "px";
+popup.style.left = rightPosition + "px";
+
+
+    
 
     //move cursor
     // Make the popup draggable
@@ -210,44 +248,46 @@ prevPopup = popup;
         word.innerText = clickedWord;
         word.classList.add("popup-word");
         content.appendChild(word);
+
+        let definitionDiv = document.createElement("div");
+        definitionDiv.innerHTML = `<span class="bold-text" style="font-family: 'Segoe UI'; font-size: 12px;">Definition:</span> ${definition}`;
+        definitionDiv.classList.add("popup-definition");
+        content.appendChild(definitionDiv);
+
+        let examplesentence = document.createElement("div");
+        examplesentence.innerHTML = `<span class="bold-text" style="font-family: 'Segoe UI'; font-size: 12px;">Example Sentence:</span> ${ExampleSentence}`;
+        examplesentence.classList.add("popup-example");
+        content.appendChild(examplesentence);
+
+        let translation = document.createElement("div");
+        translation.innerHTML = `<span class="bold-text" style="font-family: 'Segoe UI'; font-size: 12px;">Translation:</span> ${Translation}`;
+        translation.classList.add("popup-translation");
+        content.appendChild(translation);
         
         let synonymDiv = document.createElement("div");
-        synonymDiv.innerHTML = `<span class="bold-text">Synonym:</span> ${synonym}`;
+        synonymDiv.innerHTML = `<span class="bold-text" style="font-family: 'Segoe UI'; font-size: 12px;">Synonym:</span> ${synonym}`;
         synonymDiv.classList.add("popup-synonym");
         content.appendChild(synonymDiv);
+
+        
+        let homonym = document.createElement("div");
+        homonym.innerHTML = `<span class="bold-text" style="font-family: 'Segoe UI'; font-size: 12px;">Homonym:</span> ${Homonym}`;
+        homonym.classList.add("popup-homonym");
+        content.appendChild(homonym);
+
         
         let antonymDiv = document.createElement("div");
-        antonymDiv.innerHTML = `<span class="bold-text">Antonym:</span> ${antonym}`;
+        antonymDiv.innerHTML = `<span class="bold-text" style="font-family: 'Segoe UI'; font-size: 12px;">Antonym:</span> ${antonym}`;
         antonymDiv.classList.add("popup-antonym");
         content.appendChild(antonymDiv);
         
 
-         let homonym = document.createElement("div");
-         homonym.innerHTML = `<span class="bold-text">Homonym:</span> ${Homonym}`;
-         homonym.classList.add("popup-homonym");
-         content.appendChild(homonym);
-
          let Abbreviation = document.createElement("div");
-         Abbreviation.innerHTML = `<span class="bold-text">Abbreviation:</span> ${abbreviation}`;
+         Abbreviation.innerHTML = `<span class="bold-text" style="font-family: 'Segoe UI'; font-size: 12px;">Abbreviation:</span> ${abbreviation}`;
          Abbreviation.classList.add("popup-abbreviation");
          content.appendChild(Abbreviation);
 
-         let translation = document.createElement("div");
-         translation.innerHTML = `<span class="bold-text">Translation:</span> ${Translation}`;
-         translation.classList.add("popup-translation");
-         content.appendChild(translation);
 
-         
-         let definitionDiv = document.createElement("div");
-         definitionDiv.innerHTML = `<span class="bold-text">Definition:</span> ${definition}`;
-         definitionDiv.classList.add("popup-definition");
-         content.appendChild(definitionDiv);
- 
-          let examplesentence = document.createElement("div");
-          examplesentence.innerHTML = `<span class="bold-text">Example Sentence:</span> ${ExampleSentence}`;
-          examplesentence.classList.add("popup-example");
-          content.appendChild(examplesentence);
-          
           const image = document.createElement('div');
           image.classList.add('popup-img');
           popup.insertBefore(image, popup.firstChild);

@@ -1,4 +1,4 @@
-apiKey = "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";
+apiKey = "sks-fiY6pQ1k1Hx08yL0NiOAT3BlbkFJ73gxuHYrzKKKWS4N3TpS";
 apiKeyp = 'JUt5mkVtvrMrDEBFw0NUPzmqIsbpoL35rasOV6M4PHMgUn7sdEWpDsiO';
 
 
@@ -26,7 +26,7 @@ const requestOptions = {
     const content = data.choices[0].message.content;
     return content;
   } catch (error) {
-    return "Please try again" + error;
+    return "Please try again" ;
   }
   
 }
